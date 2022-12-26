@@ -17,12 +17,17 @@ There is a big TODO.
 1. WRite up documentation on how to use it a command line tool.
 2. Work on putting players in ranges, meaning being able to say 3 opponents, two of them with tight ranges. This is important, because a player that is able to play a hand because they are the big bling(meaning they are sorta playing for free- regardless if they wanted to or not), should not be catagorized as a tight hand.
 3. Major code cleaning
-4. Reduce the amount of functions/duplicate code (IE for flop and given cards should be the same)
+   a.  Reduce the amount of functions/duplicate code (IE for flop and given cards should be the same)
+4. Better stats, right now I am just averaging the results, but since I am doing batch/monte carlo simulations/bootstrapping that I should use some better stats like t-tests, or even simple SD with some epsilon
 5. Optimize the amount of sampling I should do depending on the combintorics problem needed to solve.
-6. Create an optimal betting value
+     a. Maybe create a command line arguement for the amount of time I can use to solve the problem, which would give me a accurate way of seeing how much I should sample
+6. Solve for an optimal betting value? -- As of now I provide one.
 7. Add in more complicated values like implied odds
 8. Add in a Decision tree element.
 9. Solve for hands to beat, vs hands not
 10. Write spec tests for the hand solver part- statistically I think I am getting into ties more than I should.
-11. 
+11. -- Stretch goal.. create this for Omaha and then omaha Hi/Low (I beleive there isn't many good solvers for omaha Hi/Low therefore this could have potential on small stakes games online. )
+12. Also taking seating into account. Meaning When I am big blind, or who is first to bet
+
+This is a small tool in a larger project, where the goal is to create a fully automated bot to play in multiple online tournaments at once. 
 

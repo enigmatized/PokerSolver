@@ -3,9 +3,6 @@
 {-# LANGUAGE FlexibleContexts #-}
 
 {-# Language PatternSynonyms #-}
---import Data.Map
---import Data.List
---
 
 
 module CalculateWinner where
@@ -21,40 +18,16 @@ import qualified Data.Map                 as Map
 import CardTypes
 import Data.Function (on)
 import DealCards
+import HelperFuncs
 
 import Debug.Trace
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
 
 
-
--- Deck
--- How should this be structured?
--- Map
--- Or Lists?
--- First probability of winning
--- Then calculating
--- Not even sure how to cacluate probability of hands
---
---
-
-makeFlopsAndGetOddsForFlops' :: Deck' -> Deck' -> Deck' -> (Int, Int, Int)
-makeFlopsAndGetOddsForFlops' myCards  deck enemyCards   = foldl' addTriples (0,0,0)  [ findWinnerByBestHand myCards enemyCards x | x <- mapM (const deck ) [1..3], (snd $  head x) < ( snd $ head  (tail x)) ]
-
-
-
-makeFlopsAndGetOddsForFlopsAndRiver :: Deck' -> Deck' -> Deck' -> ( (Int, Int, Int), (Int, Int, Int))
-makeFlopsAndGetOddsForFlopsAndRiver myCards  deck enemyCards   = do
-    let tripleList = [ findWinnerByBestHand myCards enemyCards x | x <- mapM (const deck ) [1..3], (snd $  head x) < ( snd $ head  (tail x)) ]
-    let fiveList   = [ findWinnerByBestHand myCards enemyCards x | x <- mapM (const deck ) [1..5], (snd $  head x) < ( snd $ head  (tail x)) ]
-    (foldl' addTriples (0,0,0) tripleList, foldl' addTriples (0,0,0) fiveList)
-
-
-flopProvidedAndGetOddsForTurnAndRiver :: Deck' -> Deck' -> Deck' -> [Deck'] -> ( (Int, Int, Int), (Int, Int, Int))
-flopProvidedAndGetOddsForTurnAndRiver    flop    myCards   deck    enemyCards    = do
+gettOddsByTestingAgainstPossibleEnemyHands :: Deck' -> Deck' -> Deck' -> [Deck'] -> ( (Int, Int, Int), (Int, Int, Int))
+gettOddsByTestingAgainstPossibleEnemyHands    flop    myCards   deck    enemyCards    = do
     case length flop of
-        --0 -> makeFlopsAndGetOddsForFlopsAndRiver myCards  deck enemyCards -- Fix this for enemy cards
+        0 ->  (foldl' addTriples (0,0,0) noCardsProvidedRandomFlops, foldl' addTriples (0,0,0) noCardsProvidedRandomRivers)
         3 -> do  --trace (show [(x:flop) | x <- deck ] ) 
             --let tripleList = ([  checkForWinnersOrLoser (map (findWinnerByBestHand (x:flop) myCards) enemyCards)  | x <- deck ])
             let fiveList   = [checkForWinnersOrLoser $ map (findWinnerByBestHand (x ++ flop) myCards) enemyCards  | x <- mapM (const deck ) [1..2], (snd $  head x) < ( snd $ head  (tail x)) ]
@@ -67,7 +40,8 @@ flopProvidedAndGetOddsForTurnAndRiver    flop    myCards   deck    enemyCards   
         checkForWinnersOrLoser :: [(Int, Int, Int)] -> (Int, Int, Int)
         checkForWinnersOrLoser ls = if (0,1,0) `elem` ls then (0,1,0) else (if (0,0,1) `elem` ls then (0,0,1) else (1,0,0))
         tripleList = [ checkForWinnersOrLoser $ map (findWinnerByBestHand (x:flop) myCards)  enemyCards  | x <- deck ]
-
+        noCardsProvidedRandomFlops = [  checkForWinnersOrLoser $ map (findWinnerByBestHand x myCards) enemyCards | x <- mapM (const deck ) [1..3], (snd $  head x) < ( snd $ head  (tail x)) ]
+        noCardsProvidedRandomRivers = [ checkForWinnersOrLoser $ map (findWinnerByBestHand x myCards) enemyCards  | x <- mapM (const deck ) [1..5], (snd $  head x) < ( snd $ head  (tail x)) ]
 
 
 
@@ -82,10 +56,6 @@ flopProvidedAndGetOddsForTurnAndRiver    flop    myCards   deck    enemyCards   
 
 
 -- (findWinnerByBestHand myCards enemyCards (take 3 x), findWinnerByBestHand myCards enemyCards x) 
-
-addTriplesMultiPair :: ( (Int, Int, Int), (Int, Int, Int) ) -> ( (Int, Int, Int), (Int, Int, Int) ) -> ( (Int, Int, Int), (Int, Int, Int) ) 
-addTriplesMultiPair ( a, b) ( c, d) = ((addTriples a c),   (addTriples c d))
-
 
 -- Get a hand
 --
@@ -360,7 +330,4 @@ allCalc  myCards allPossibleTwoPairs deck =    foldr addTriples (0,0,0) $ map (c
 calcPairs :: [(Char, Int)] ->  [(Char, Int)] -> [(Char, Int)] -> (Int, Int, Int)
 calcPairs  myCards  deck enemyCards =  foldr addTriples (0,0,0)  $ map (\x  ->  findWinnerByBestHand  x myCards enemyCards)  $ getAllFlopCombinations (removeCards'  deck enemyCards)
 
-
-addTriples :: (Int, Int, Int) -> (Int, Int, Int) -> (Int, Int, Int)
-addTriples (!aaa, !bbb, !ccc) (!ddd, !eee, !fff) = (aaa + ddd, bbb + eee, ccc +fff) 
 

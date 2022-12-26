@@ -28,6 +28,7 @@ library
       CalculateWinner
       CardTypes
       DealCards
+      HelperFuncs
   other-modules:
       Paths_PokerCalculator
   hs-source-dirs:

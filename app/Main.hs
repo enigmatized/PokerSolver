@@ -16,131 +16,43 @@ import System.Environment
 import Debug.Trace
 import Data.Array.IO
 import Data.List
---import HFlags
+
 import Test.Hspec.Runner
 import Data.Map.Strict (Map)
 import qualified Data.Map                 as Map
 import Data.List.Split 
-
--- Need to ask round pre flop, flop
--- Need to ask for number of players
--- 
-
-removeCardsFromDeck :: Deck' -> Deck' -> Deck'
-removeCardsFromDeck  ((a,b):xs) deck  =  removeCardsFromDeck xs $ removeCard' deck a b
-removeCardsFromDeck  []    deck       = deck
-
-makeDeckFromCommmunity :: [String] -> [(Char, Int)]
-makeDeckFromCommmunity (y:(x:xs)) = [(head y, (read x :: Int))] ++ (makeDeckFromCommmunity xs)
-makeDeckFromCommmunity []         =   []      
-
-readString :: Int -> [String] ->  IO [String] 
-readString 0 input = return input
-readString n input = do
-  z <- getLine
-  readString (n-1) (z:input)
-
--- All two paris -->  Create all combinations of flops --> map calculate all winners  
-
---foldr addTriples (0,0,0) to a list of  winnerByPairs with myCards, house cards, enemyCards   
-
--- solveLazilyish:: [(Char, Int)] -> [(Char, Int)] -> [[(Char, Int)]] -> [[(Int, Int, Int)]] --(\enemyCards ->   (map (winnerByPairs' myCards enemyCards) )  .   )
--- solveLazilyish myCards deckOfCards allPossibleTwoPairsFromEnemies = map (\enemyCards ->    ( (foldr addTriples (0,0,0) ) $  map ( (winnerByPairs' myCards enemyCards)) $ (getAllFlopCombinations $ (removeCards'  deckOfCards enemyCards)))) allPossibleTwoPairsFromEnemies
-
--- solveLazilyish:: [(Char, Int)] -> [(Char, Int)] -> [[(Char, Int)]] -> (Int, Int, Int)
--- solveLazilyish myCards deckOfCards allPossibleTwoPairsFromEnemies =  (foldr addTriples (0,0,0) ) $ map (\enemyCards ->  (foldr addTriples (0,0,0) )  $  map ( (winnerByPairs' myCards enemyCards)) $ (getAllFlopCombinations $ (removeCards'  deckOfCards enemyCards))) allPossibleTwoPairsFromEnemies
-
-solveLazilyish':: [(Char, Int)] -> [(Char, Int)] -> [[(Char, Int)]] -> (Int, Int, Int)
-solveLazilyish' myCards deckOfCards allPossibleTwoPairsFromEnemies =   foldr'  (addTriples  . (makeFlopsAndGetOddsForFlops'  myCards deckOfCards)) (0,0,0) allPossibleTwoPairsFromEnemies
+import HelperFuncs
 
 
-solveLazilyishFlopAndRiver:: [(Char, Int)] -> [(Char, Int)] -> [[(Char, Int)]] -> ((Int, Int, Int), (Int, Int, Int))
-solveLazilyishFlopAndRiver myCards deckOfCards allPossibleTwoPairsFromEnemies =   foldr'  (addTriplesMultiPair  . (makeFlopsAndGetOddsForFlopsAndRiver  myCards deckOfCards)) ((0,0,0), (0,0,0)) allPossibleTwoPairsFromEnemies
+--- Usually returns a list of two batch simulations [((Wins, Loses, ties), (Wins, Loses, Ties))]
+-- Where the right hand side is river and left hand side is turn or flop 
+--- This depends on how many cards provided
+-- Note this is a for loop with numberOfSamples being.... 
+monteCarloSimulation  :: Deck' -> Deck' -> [[Deck']] -> Deck' ->  Int -> Int -> IO [((Int, Int, Int), (Int, Int, Int))] 
+monteCarloSimulation myCards houseCardDeck possibleEnemyStartingHands flop enemyDeckLength numberOfSamples = forM [1..numberOfSamples] $ \i -> do
+      sliceer  <- generate  $  (choose (0, enemyDeckLength) :: Gen Int) -- This needs to get removed, this isn't random -- its choosing the same numbers in a 30 round
+      --let sliceer = trace ("\nsclicer " ++ (show sliceer')) sliceer
+      pure $ solveLazilyish  myCards houseCardDeck  ( take 30  $  drop sliceer possibleEnemyStartingHands) flop
 
-solveLazilyishFlopProvided:: [(Char, Int)] -> [(Char, Int)] -> [[[(Char, Int)]]] -> [(Char, Int)] -> ((Int, Int, Int), (Int, Int, Int))
-solveLazilyishFlopProvided myCards deckOfCards allPossibleTwoPairsFromEnemies flop =   foldr'  (addTriplesMultiPair  . (flopProvidedAndGetOddsForTurnAndRiver flop myCards deckOfCards)) ((0,0,0), (0,0,0)) allPossibleTwoPairsFromEnemies
-
-
-solveLazilyishTurnRiver:: [(Char, Int)] -> [(Char, Int)] -> [[[(Char, Int)]]] -> [(Char, Int)] -> ((Int, Int, Int), (Int, Int, Int))
-solveLazilyishTurnRiver myCards deckOfCards allPossibleTwoPairsFromEnemies flop =   foldr'  (addTriplesMultiPair  . (flopProvidedAndGetOddsForTurnAndRiver flop myCards deckOfCards)) ((0,0,0), (0,0,0)) allPossibleTwoPairsFromEnemies
-
-
-expectedValueIsh :: (Float, Float, Float) -> (Float, Float) -> Float 
-expectedValueIsh  (a, b, _) (c, d) = (a * (c)) + (b * ( d)) 
-
----OKay for this project what do I need to do next?
----Make the solver for winners:
----    look for flushes
----             Straights
---              triples
---              four of a kind
+-- Sums up all the triple tuples for a batch
+-- This function can be thought as given 'n' combinations of enemy hands, give me the result from all hands.
+solveLazilyish:: [(Char, Int)] -> [(Char, Int)] -> [[[(Char, Int)]]] -> [(Char, Int)] -> ((Int, Int, Int), (Int, Int, Int))
+solveLazilyish  myCards deckOfCards allPossibleTwoPairsFromEnemies flop =   foldr'  (addTriplesMultiPair  . (gettOddsByTestingAgainstPossibleEnemyHands flop myCards deckOfCards)) ((0,0,0), (0,0,0)) allPossibleTwoPairsFromEnemies
 
 
 
 --  Maybe splitting this off into threads or using deep seq
 --- Looking to optimize code quite  bit
---- 
-
---- Also doing this for flop calculations
---- ALso altering the deck so that the enemies hands are usually only play-able hands.....
---- It might be a good idea. Instead of doing all  hands is just playable hands. I think that limits the computations.
---- It might be good as well to instead of doing all calculations, do 500 hands instead of 12, because it takes a little too long.
---  
-
-shuffle'' :: [a] -> IO [a]
-shuffle'' xs = do
-        ar <- newArray n xs
-        forM [1..n] $ \i -> do
-            j <- randomRIO (i,n)
-            vi <- readArray ar i
-            vj <- readArray ar j
-            writeArray ar j vi
-            return vj
-  where
-    n = length xs
-    newArray :: Int -> [a] -> IO (IOArray Int a)
-    newArray n xs =  newListArray (1,n) xs
 
 
--- shuffle' :: (Eq a) => [a] -> IO [a]
--- shuffle' [] = return []
--- shuffle' ls = do
---     x <- pick ls
---     let y = remove x ls
---     xs <- shuffle y
---     return (x:xs)
-
-n :: Int
-n = 30
-
-probWinning :: (Int, Int, Int) -> Float
-probWinning (a1, a2, a3) =  (fromIntegral a1) / (fromIntegral (a1 + a2 + a3))
-
-showWinRates :: (Int, Int, Int) -> (Float, Float, Float)
-showWinRates (a1, a2, a3) = ((fromIntegral a1) / (fromIntegral (a1 + a2 + a3)),  (fromIntegral a2) / (fromIntegral (a1 + a2 + a3) ) ,  (fromIntegral a3) / (fromIntegral (a1 + a2 + a3)) )
 
 
-monteCarloSamplingFlopOnly  :: Deck' -> Deck' -> [Deck'] ->  Int -> Int -> IO [(Int, Int, Int)] 
-monteCarloSamplingFlopOnly myCards houseCardDeck possibleEnemyStartingHands enemyDeckLength numberOfSamples = forM [1..numberOfSamples] $ \i -> do
-      sliceer  <- generate  $  (choose (0, enemyDeckLength) :: Gen Int)
-      pure $ solveLazilyish' myCards houseCardDeck ( take 30  $  drop sliceer possibleEnemyStartingHands)
-
-monteCarloSamplingFlopAndRiver  :: Deck' -> Deck' -> [Deck'] ->  Int -> Int -> IO [((Int, Int, Int), (Int, Int, Int))] 
-monteCarloSamplingFlopAndRiver myCards houseCardDeck possibleEnemyStartingHands enemyDeckLength numberOfSamples = forM [1..numberOfSamples] $ \i -> do
-      sliceer  <- generate  $  (choose (0, enemyDeckLength) :: Gen Int)
-      pure $ solveLazilyishFlopAndRiver myCards houseCardDeck ( take 30  $  drop sliceer possibleEnemyStartingHands)
-
-monteCarloProvidingTheFlop  :: Deck' -> Deck' -> [[Deck']] -> Deck' ->  Int -> Int -> IO [((Int, Int, Int), (Int, Int, Int))] 
-monteCarloProvidingTheFlop myCards houseCardDeck possibleEnemyStartingHands flop enemyDeckLength numberOfSamples = forM [1..numberOfSamples] $ \i -> do
-      sliceer  <- generate  $  (choose (0, enemyDeckLength) :: Gen Int) -- This needs to get removed, this isn't random -- its choosing the same numbers in a 30 round
-      --let sliceer = trace ("\nsclicer " ++ (show sliceer')) sliceer
-      pure $ solveLazilyishTurnRiver myCards houseCardDeck  ( take 30  $  drop sliceer possibleEnemyStartingHands) flop
 
 
 
 main :: IO ()
 main = do
-   someFunc
+   
    -- hspecWith (configAddFilter predicate defaultConfig) Spec.spec
    -- return ()
    -- https://www.fpcomplete.com/blog/2014/03/monte-carlo-haskell/
@@ -227,25 +139,28 @@ main = do
    putStrLn $ ("Matching flushes" ++ ) $ show $ isHandValueFromFlush (matchingFlushes $ sort [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )])   [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )]
    
    n2 <- getLine
-   case  gamePlayPosition of 
-      1 -> do
 
-               let clearnedUpWorthyEnenmyStartingHands = filter (\[a,b] -> not $ (a `elem` myCards) || (b `elem` myCards) ) worthyEnenmyStartingHands
-               let enemyDeckLength = (length clearnedUpWorthyEnenmyStartingHands) -30
-               newRes <-  monteCarloSamplingFlopAndRiver myCards d2 worthyEnenmyStartingHands enemyDeckLength 10
-               let flop = [aaa | (aaa,_ )<- newRes ]
-               let river = [bbb | (_,  bbb )<- newRes]
-               let winRatesCalculatedFlop =  showWinRates $ foldr  xxxxxx   (0, 0, 0)  flop
-               let winRatesCalculatedRiver =  showWinRates $ foldr  xxxxxx  (0, 0, 0)  river
-               putStrLn $ ("Results from MONTE CARLO  (Win%/loss%/Tie%) flop" ++) $ show winRatesCalculatedFlop
-               putStrLn $ ("Results from MONTE CARLO  Expected Value flop" ++) $ show $ expectedValueIsh winRatesCalculatedFlop ( wouldWin ,  wouldLose )--((read wouldWin :: Int), (read wouldLose :: Int))
-               putStrLn $ ("Results from MONTE CARLO  (Win%/loss%/Tie%) flop" ++) $ show winRatesCalculatedRiver
-               putStrLn $ ("Results from MONTE CARLO  Expected Value flop" ++) $ show $ expectedValueIsh winRatesCalculatedRiver (wouldWin , wouldLose)
+   let communityCardsFlop = sort $ makeDeckFromCommmunity (drop 8 args) --Command line arguements must always have 8 arguements
+
+   case  gamePlayPosition of -- I do not think this needs to be added. It can be infered by cards given
+      --1 -> do
+               -- let clearnedUpWorthyEnenmyStartingHands = filter (\[a,b] -> not $ (a `elem` myCards) || (b `elem` myCards) ) worthyEnenmyStartingHands
+               -- let enemyDeckLength = (length clearnedUpWorthyEnenmyStartingHands) -30
+               -- newRes <-  monteCarloSamplingFlopAndRiver myCards d2 worthyEnenmyStartingHands enemyDeckLength 10
+               -- let flop = [aaa | (aaa,_ )<- newRes ]
+               -- let river = [bbb | (_,  bbb )<- newRes]
+               -- let winRatesCalculatedFlop =  showWinRates $ foldr  xxxxxx   (0, 0, 0)  flop
+               -- let winRatesCalculatedRiver =  showWinRates $ foldr  xxxxxx  (0, 0, 0)  river
+               -- putStrLn $ ("Results from MONTE CARLO  (Win%/loss%/Tie%) flop" ++) $ show winRatesCalculatedFlop
+               -- putStrLn $ ("Results from MONTE CARLO  Expected Value flop" ++) $ show $ expectedValueIsh winRatesCalculatedFlop ( wouldWin ,  wouldLose )--((read wouldWin :: Int), (read wouldLose :: Int))
+               -- putStrLn $ ("Results from MONTE CARLO  (Win%/loss%/Tie%) flop" ++) $ show winRatesCalculatedRiver
+               -- putStrLn $ ("Results from MONTE CARLO  Expected Value flop" ++) $ show $ expectedValueIsh winRatesCalculatedRiver (wouldWin , wouldLose)
             
+
       _ -> do
 
                
-               let communityCardsFlop = sort $ makeDeckFromCommmunity (drop 8 args)
+               
                putStrLn $ (" communityCardsFlop  \n \n" ++) $ show  communityCardsFlop
                let newDeck = filter (\xxxxx -> not $  xxxxx `elem`  communityCardsFlop) d2
 
@@ -261,7 +176,7 @@ main = do
                putStrLn $ ("  clearnedUpWorthyEnenmyStartingHands   " ++) $ show clearnedUpWorthyEnenmyStartingHands
                let enemyDeckLength = (length clearnedUpWorthyEnenmyStartingHands) -30
                --Do you need enemyDeckLength?
-               newRes <-  monteCarloProvidingTheFlop myCards newDeck clearnedUpWorthyEnenmyStartingHands communityCardsFlop enemyDeckLength 20
+               newRes <-  monteCarloSimulation myCards newDeck clearnedUpWorthyEnenmyStartingHands communityCardsFlop enemyDeckLength 20
                putStrLn $ ("Results  " ++) $ show $ sort newRes
                let flop = [aaa | (aaa,_ )<- newRes ]
                let river = [bbb | (_,  bbb )<- newRes]

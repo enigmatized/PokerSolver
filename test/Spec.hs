@@ -23,7 +23,7 @@ import Test.Hspec
 
 
 spec :: Spec
-spec = describe "Optimizer tests" $ do
-    it "can replace binary expression with number literal for state variables" $ True
+spec = describe "Need to write more here" $ do
+    it "This is not wokring how I would expect because something is wrong with my setup" $ True
 
 
