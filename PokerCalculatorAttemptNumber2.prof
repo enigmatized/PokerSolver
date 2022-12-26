@@ -1,0 +1,101 @@
+	Sat Dec 24 12:29 2022 Time and Allocation Profiling Report  (Final)
+
+	   PokerCalculator-exe +RTS -N -p -RTS
+
+	total time  =       12.05 secs   (37530 ticks @ 1000 us, 16 processors)
+	total alloc = 156,044,930,792 bytes  (excludes profiling overheads)
+
+COST CENTRE                          MODULE          SRC                                      %time %alloc
+
+matchingCards                        CalculateWinner src/CalculateWinner.hs:(158,1)-(159,34)   22.9   27.7
+findWinnerByBestHand.enemyCards''    CalculateWinner src/CalculateWinner.hs:194:9-58           15.5   16.5
+mySortTuplesByLastWithGreatestAsHead CalculateWinner src/CalculateWinner.hs:136:1-69           12.8   13.5
+findWinnerByBestHand.tform           CalculateWinner src/CalculateWinner.hs:188:9-34           11.8   12.6
+findWinnerByBestHand.myCards''       CalculateWinner src/CalculateWinner.hs:193:9-55           11.7   12.4
+makeFlopsAndGetOddsForFlops'         CalculateWinner src/CalculateWinner.hs:48:1-206            6.8    4.6
+findWinnerByBestHand                 CalculateWinner src/CalculateWinner.hs:(182,1)-(201,83)    5.2    1.0
+findWinnerByBestHand.theirHandPairs  CalculateWinner src/CalculateWinner.hs:196:9-135           5.0    6.5
+findWinnerByBestHand.myHandByPairs   CalculateWinner src/CalculateWinner.hs:195:9-128           3.7    4.5
+matchingCardsToHand''                CalculateWinner src/CalculateWinner.hs:(146,1)-(150,86)    3.1    0.9
+
+
+                                                                                                                              individual      inherited
+COST CENTRE                                 MODULE                SRC                                     no.      entries  %time %alloc   %time %alloc
+
+MAIN                                        MAIN                  <built-in>                               530           0    0.0    0.0   100.0  100.0
+ CAF                                        GHC.Conc.Signal       <entire-module>                          646           0    0.0    0.0     0.0    0.0
+ CAF                                        GHC.Float             <entire-module>                          638           0    0.0    0.0     0.0    0.0
+ CAF                                        GHC.IO.Encoding       <entire-module>                          630           0    0.0    0.0     0.0    0.0
+ CAF                                        GHC.IO.Encoding.Iconv <entire-module>                          628           0    0.0    0.0     0.0    0.0
+ CAF                                        GHC.IO.Handle.FD      <entire-module>                          620           0    0.0    0.0     0.0    0.0
+ CAF                                        GHC.IO.Handle.Text    <entire-module>                          618           0    0.0    0.0     0.0    0.0
+ CAF                                        GHC.Read              <entire-module>                          605           0    0.0    0.0     0.0    0.0
+ CAF                                        GHC.Event.Thread      <entire-module>                          576           0    0.0    0.0     0.0    0.0
+ CAF                                        GHC.Event.Poll        <entire-module>                          552           0    0.0    0.0     0.0    0.0
+ CAF:deck_r3qq                              Main                  <no location info>                      1049           0    0.0    0.0     0.0    0.0
+  main                                      Main                  app/Main.hs:(52,1)-(153,122)            1075           0    0.0    0.0     0.0    0.0
+   main.d                                   Main                  app/Main.hs:76:8-71                     1076           0    0.0    0.0     0.0    0.0
+    makeDec'                                DealCards             src/DealCards.hs:24:1-59                1077           1    0.0    0.0     0.0    0.0
+     makeDec'.\                             DealCards             src/DealCards.hs:24:43-53               1078           4    0.0    0.0     0.0    0.0
+ CAF:findWinnerByBestHand_tform             CalculateWinner       src/CalculateWinner.hs:188:9-13         1019           0    0.0    0.0     0.0    0.0
+  findWinnerByBestHand                      CalculateWinner       src/CalculateWinner.hs:(182,1)-(201,83) 1086           0    0.0    0.0     0.0    0.0
+   findWinnerByBestHand.tform               CalculateWinner       src/CalculateWinner.hs:188:9-34         1087           1    0.0    0.0     0.0    0.0
+ CAF:lvl19_r3qK                             Main                  <no location info>                      1057           0    0.0    0.0     0.0    0.0
+ CAF:lvl7_r3qy                              Main                  <no location info>                      1050           0    0.0    0.0     0.0    0.0
+  main                                      Main                  app/Main.hs:(52,1)-(153,122)            1064           0    0.0    0.0     0.0    0.0
+ CAF:main1                                  Main                  <no location info>                      1058           0    0.0    0.0     0.0    0.0
+  main                                      Main                  app/Main.hs:(52,1)-(153,122)            1060           1    0.0    0.0     0.0    0.0
+ CAF:makeDec                                DealCards             src/DealCards.hs:21:1-7                  980           0    0.0    0.0     0.0    0.0
+  makeDec                                   DealCards             src/DealCards.hs:21:1-67                1069           1    0.0    0.0     0.0    0.0
+ CAF:makeDec5                               DealCards             <no location info>                       979           0    0.0    0.0     0.0    0.0
+  makeDec                                   DealCards             src/DealCards.hs:21:1-67                1071           0    0.0    0.0     0.0    0.0
+ CAF:someFunc1                              CalculateWinner       <no location info>                      1014           0    0.0    0.0     0.0    0.0
+  someFunc                                  CalculateWinner       src/CalculateWinner.hs:33:1-30          1062           1    0.0    0.0     0.0    0.0
+ CAF:someFunc2                              CalculateWinner       <no location info>                      1013           0    0.0    0.0     0.0    0.0
+ CAF:worthyEnenmyStartingHands              DealCards             src/DealCards.hs:28:1-25                 989           0    0.0    0.0     0.0    0.0
+  worthyEnenmyStartingHands                 DealCards             src/DealCards.hs:28:1-130               1065           1    0.0    0.0     0.0    0.0
+   filterForOnlyStrongEnemyHand             DealCards             src/DealCards.hs:(35,1)-(39,25)         1072        1456    0.0    0.0     0.0    0.0
+   getAllCombinationsWithTwoPair            DealCards             src/DealCards.hs:93:1-117               1066           1    0.0    0.0     0.0    0.0
+ CAF:worthyEnenmyStartingHands1             DealCards             <no location info>                       988           0    0.0    0.0     0.0    0.0
+  worthyEnenmyStartingHands                 DealCards             src/DealCards.hs:28:1-130               1067           0    0.0    0.0     0.0    0.0
+   makeDec'                                 DealCards             src/DealCards.hs:24:1-59                1068           1    0.0    0.0     0.0    0.0
+    makeDec'.\                              DealCards             src/DealCards.hs:24:43-53               1070           4    0.0    0.0     0.0    0.0
+ main                                       Main                  app/Main.hs:(52,1)-(153,122)            1061           0    0.0    0.0   100.0  100.0
+  main.\                                    Main                  app/Main.hs:153:63-111                  1115           1    0.0    0.0     0.0    0.0
+  main.\                                    Main                  app/Main.hs:152:62-111                  1114           1    0.0    0.0     0.0    0.0
+  main.\                                    Main                  app/Main.hs:151:63-112                  1113           1    0.0    0.0     0.0    0.0
+  main.d                                    Main                  app/Main.hs:76:8-71                     1073           1    0.0    0.0     0.0    0.0
+   removeCard'                              DealCards             src/DealCards.hs:85:1-67                1074           1    0.0    0.0     0.0    0.0
+  main.d2                                   Main                  app/Main.hs:77:8-54                     1079           1    0.0    0.0     0.0    0.0
+   removeCard'                              DealCards             src/DealCards.hs:85:1-67                1080           1    0.0    0.0     0.0    0.0
+  main.myCards                              Main                  app/Main.hs:75:8-79                     1089           1    0.0    0.0     0.0    0.0
+  main.results                              Main                  app/Main.hs:99:8-71                     1081           1    0.0    0.0   100.0  100.0
+   solveLazilyish'                          Main                  app/Main.hs:26:1-185                    1082           1    0.0    0.0   100.0  100.0
+    addTriples                              CalculateWinner       src/CalculateWinner.hs:301:1-83         1112         520    0.0    0.0     0.0    0.0
+    makeFlopsAndGetOddsForFlops'            CalculateWinner       src/CalculateWinner.hs:48:1-206         1083         520    6.8    4.6   100.0  100.0
+     addTriples                             CalculateWinner       src/CalculateWinner.hs:301:1-83         1108    31824000    0.0    0.0     0.0    0.0
+     findWinnerByBestHand                   CalculateWinner       src/CalculateWinner.hs:(182,1)-(201,83) 1084    31824000    5.2    1.0    93.2   95.4
+      ==                                    CardTypes             src/CardTypes.hs:35:26-27               1107    31824000    0.3    0.0     0.3    0.0
+      findWinnerByBestHand.enemyCards'      CalculateWinner       src/CalculateWinner.hs:192:9-42         1100    31824000    0.3    0.0     0.3    0.0
+       findWinnerByBestHand.tform           CalculateWinner       src/CalculateWinner.hs:188:9-34         1101           0    0.0    0.0     0.0    0.0
+        findWinnerByBestHand.tform.\        CalculateWinner       src/CalculateWinner.hs:188:32           1102        1581    0.0    0.0     0.0    0.0
+      findWinnerByBestHand.enemyCards''     CalculateWinner       src/CalculateWinner.hs:194:9-58         1099    31824000   15.5   16.5    15.5   16.5
+      findWinnerByBestHand.houseCards'      CalculateWinner       src/CalculateWinner.hs:189:9-41         1085    31824000    0.3    0.0     0.3    0.0
+       findWinnerByBestHand.tform           CalculateWinner       src/CalculateWinner.hs:188:9-34         1109           0    0.0    0.0     0.0    0.0
+        findWinnerByBestHand.tform.\        CalculateWinner       src/CalculateWinner.hs:188:32           1110        1054    0.0    0.0     0.0    0.0
+      findWinnerByBestHand.myCards'         CalculateWinner       src/CalculateWinner.hs:191:9-39         1092    31824000    0.3    0.0     0.3    0.0
+       findWinnerByBestHand.tform           CalculateWinner       src/CalculateWinner.hs:188:9-34         1093           0    0.0    0.0     0.0    0.0
+        findWinnerByBestHand.tform.\        CalculateWinner       src/CalculateWinner.hs:188:32           1094        1056    0.0    0.0     0.0    0.0
+      findWinnerByBestHand.myCards''        CalculateWinner       src/CalculateWinner.hs:193:9-55         1090    31824000   11.7   12.4    11.7   12.4
+      findWinnerByBestHand.myHandByPairs    CalculateWinner       src/CalculateWinner.hs:195:9-128        1095    31824000    3.7    4.5    19.7   22.0
+       matchingCards                        CalculateWinner       src/CalculateWinner.hs:(158,1)-(159,34) 1097   159120000    9.5   11.6     9.5   11.6
+       matchingCardsToHand''                CalculateWinner       src/CalculateWinner.hs:(146,1)-(150,86) 1098    31824000    1.7    0.5     1.7    0.5
+       mySortTuplesByLastWithGreatestAsHead CalculateWinner       src/CalculateWinner.hs:136:1-69         1096    31824000    4.8    5.4     4.8    5.4
+      findWinnerByBestHand.theirHandPairs   CalculateWinner       src/CalculateWinner.hs:196:9-135        1103    31824000    5.0    6.5    27.9   31.0
+       matchingCards                        CalculateWinner       src/CalculateWinner.hs:(158,1)-(159,34) 1105   190944000   13.4   16.1    13.4   16.1
+       matchingCardsToHand''                CalculateWinner       src/CalculateWinner.hs:(146,1)-(150,86) 1106    31824000    1.5    0.4     1.5    0.4
+       mySortTuplesByLastWithGreatestAsHead CalculateWinner       src/CalculateWinner.hs:136:1-69         1104    31824000    8.0    8.1     8.0    8.1
+      compare                               CardTypes             src/CardTypes.hs:35:21-23               1111    18587520    0.1    0.0     0.1    0.0
+      findWinnerByBestHand.tform            CalculateWinner       src/CalculateWinner.hs:188:9-34         1088           0   11.8   12.6    11.8   12.6
+       findWinnerByBestHand.tform.\         CalculateWinner       src/CalculateWinner.hs:188:32           1091   222764309    0.0    0.0     0.0    0.0
+  someFunc                                  CalculateWinner       src/CalculateWinner.hs:33:1-30          1063           0    0.0    0.0     0.0    0.0

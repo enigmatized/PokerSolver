@@ -1,0 +1,83 @@
+	Mon Dec 26 13:01 2022 Time and Allocation Profiling Report  (Final)
+
+	   PokerCalculator-exe +RTS -N -p -RTS H 12 H 13 1.2 1 1 2 H 14 C 14 D 12
+
+	total time  =        0.00 secs   (4 ticks @ 1000 us, 16 processors)
+	total alloc =     396,040 bytes  (excludes profiling overheads)
+
+COST CENTRE  MODULE           SRC                             %time %alloc
+
+MAIN         MAIN             <built-in>                       75.0   60.2
+main         Main             app/Main.hs:(141,1)-(290,151)    25.0   13.7
+CAF          GHC.IO.Handle.FD <entire-module>                   0.0   13.2
+removeCard'  DealCards        src/DealCards.hs:85:1-67          0.0    1.4
+makeDec'.\   DealCards        src/DealCards.hs:24:43-53         0.0    1.5
+someFunc     CalculateWinner  src/CalculateWinner.hs:28:1-30    0.0    2.6
+main.myCards Main             app/Main.hs:196:8-113             0.0    1.9
+
+
+                                                                                                     individual      inherited
+COST CENTRE       MODULE                SRC                                      no.      entries  %time %alloc   %time %alloc
+
+MAIN              MAIN                  <built-in>                                589           0   75.0   60.2   100.0  100.0
+ CAF              GHC.Conc.Signal       <entire-module>                           706           0    0.0    0.2     0.0    0.2
+ CAF              GHC.IO.Encoding       <entire-module>                           690           0    0.0    0.8     0.0    0.8
+ CAF              GHC.IO.Encoding.Iconv <entire-module>                           688           0    0.0    0.1     0.0    0.1
+ CAF              GHC.IO.Exception      <entire-module>                           682           0    0.0    0.6     0.0    0.6
+ CAF              GHC.IO.Handle.FD      <entire-module>                           680           0    0.0   13.2     0.0   13.2
+ CAF              GHC.IO.Handle.Text    <entire-module>                           678           0    0.0    0.0     0.0    0.0
+ CAF              GHC.Read              <entire-module>                           664           0    0.0    0.0     0.0    0.0
+ CAF              GHC.Show              <entire-module>                           660           0    0.0    0.1     0.0    0.1
+ CAF              GHC.TopHandler        <entire-module>                           655           0    0.0    0.0     0.0    0.0
+ CAF              GHC.Event.Thread      <entire-module>                           634           0    0.0    0.4     0.0    0.4
+ CAF              GHC.Event.Control     <entire-module>                           614           0    0.0    0.0     0.0    0.0
+ CAF              GHC.Event.Poll        <entire-module>                           611           0    0.0    0.0     0.0    0.0
+ CAF:$slsss_rc5m  Main                  app/Main.hs:219:8-11                     1127           0    0.0    0.0     0.0    0.1
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1196           0    0.0    0.0     0.0    0.1
+   main.lsss      Main                  app/Main.hs:219:8-100                    1197           1    0.0    0.1     0.0    0.1
+ CAF:deck_rc55    Main                  <no location info>                       1120           0    0.0    0.0     0.0    2.3
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1185           0    0.0    0.0     0.0    2.3
+   main.d         Main                  app/Main.hs:201:8-89                     1186           0    0.0    0.0     0.0    2.3
+    makeDec'      DealCards             src/DealCards.hs:24:1-59                 1187           1    0.0    0.8     0.0    2.3
+     makeDec'.\   DealCards             src/DealCards.hs:24:43-53                1189           4    0.0    1.5     0.0    1.5
+ CAF:lvl132_rc7q  Main                  <no location info>                       1175           0    0.0    0.0     0.0    0.3
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1193           0    0.0    0.3     0.0    0.3
+ CAF:lvl17_rc5c   Main                  <no location info>                       1122           0    0.0    0.0     0.0    0.0
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1212           0    0.0    0.0     0.0    0.0
+   main.lsss      Main                  app/Main.hs:219:8-100                    1213           0    0.0    0.0     0.0    0.0
+    main.lsss.\   Main                  app/Main.hs:219:37                       1214           1    0.0    0.0     0.0    0.0
+ CAF:lvl19_rc5e   Main                  <no location info>                       1123           0    0.0    0.0     0.0    0.0
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1209           0    0.0    0.0     0.0    0.0
+   main.lsss      Main                  app/Main.hs:219:8-100                    1210           0    0.0    0.0     0.0    0.0
+    main.lsss.\   Main                  app/Main.hs:219:37                       1211           1    0.0    0.0     0.0    0.0
+ CAF:lvl21_rc5g   Main                  <no location info>                       1124           0    0.0    0.0     0.0    0.0
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1206           0    0.0    0.0     0.0    0.0
+   main.lsss      Main                  app/Main.hs:219:8-100                    1207           0    0.0    0.0     0.0    0.0
+    main.lsss.\   Main                  app/Main.hs:219:37                       1208           1    0.0    0.0     0.0    0.0
+ CAF:lvl23_rc5i   Main                  <no location info>                       1125           0    0.0    0.0     0.0    0.0
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1203           0    0.0    0.0     0.0    0.0
+   main.lsss      Main                  app/Main.hs:219:8-100                    1204           0    0.0    0.0     0.0    0.0
+    main.lsss.\   Main                  app/Main.hs:219:37                       1205           1    0.0    0.0     0.0    0.0
+ CAF:lvl25_rc5k   Main                  <no location info>                       1126           0    0.0    0.0     0.0    0.0
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1200           0    0.0    0.0     0.0    0.0
+   main.lsss      Main                  app/Main.hs:219:8-100                    1201           0    0.0    0.0     0.0    0.0
+    main.lsss.\   Main                  app/Main.hs:219:37                       1202           1    0.0    0.0     0.0    0.0
+ CAF:lvl96_rc6B   Main                  <no location info>                       1152           0    0.0    0.0     0.0    0.2
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1194           0    0.0    0.1     0.0    0.2
+   countFiveInRow CalculateWinner       src/CalculateWinner.hs:(117,1)-(124,100) 1195           6    0.0    0.1     0.0    0.1
+ CAF:main1        Main                  <no location info>                       1176           0    0.0    0.0     0.0    0.0
+  main            Main                  app/Main.hs:(141,1)-(290,151)            1178           1    0.0    0.0     0.0    0.0
+ CAF:makeDec      DealCards             src/DealCards.hs:21:1-7                  1042           0    0.0    0.0     0.0    0.0
+  makeDec         DealCards             src/DealCards.hs:21:1-67                 1188           1    0.0    0.0     0.0    0.0
+ CAF:makeDec5     DealCards             <no location info>                       1041           0    0.0    0.0     0.0    0.2
+  makeDec         DealCards             src/DealCards.hs:21:1-67                 1190           0    0.0    0.2     0.0    0.2
+ CAF:someFunc1    CalculateWinner       <no location info>                       1076           0    0.0    0.0     0.0    0.0
+  someFunc        CalculateWinner       src/CalculateWinner.hs:28:1-30           1180           1    0.0    0.0     0.0    0.0
+ CAF:someFunc2    CalculateWinner       <no location info>                       1075           0    0.0    0.1     0.0    0.1
+ main             Main                  app/Main.hs:(141,1)-(290,151)            1179           0   25.0   13.2    25.0   21.2
+  main.d          Main                  app/Main.hs:201:8-89                     1183           1    0.0    1.0     0.0    1.7
+   removeCard'    DealCards             src/DealCards.hs:85:1-67                 1184           1    0.0    0.7     0.0    0.7
+  main.d2         Main                  app/Main.hs:202:8-72                     1191           1    0.0    1.0     0.0    1.7
+   removeCard'    DealCards             src/DealCards.hs:85:1-67                 1192           1    0.0    0.7     0.0    0.7
+  main.myCards    Main                  app/Main.hs:196:8-113                    1182           1    0.0    1.9     0.0    1.9
+  someFunc        CalculateWinner       src/CalculateWinner.hs:28:1-30           1181           0    0.0    2.6     0.0    2.6
