@@ -27,6 +27,7 @@ library
   exposed-modules:
       CalculateWinner
       CardTypes
+      CodeGraveYardWhereFuncsGoToDie
       DealCards
       HelperFuncs
   other-modules:

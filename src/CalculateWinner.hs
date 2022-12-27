@@ -87,11 +87,11 @@ removeCardByInts deck []  =   deck
 --Need to add a check for ace 2 3 4 5 straight
 countFiveInRow :: Int -> Int -> Int -> Int -> [Int] -> Maybe  Int
 countFiveInRow count last largestCount largestStraight  ls 
-    | ls == [] && (max count largestCount) >= 5      = Just largestStraight
-    | ls == [] && (max count largestCount) < 5       = Nothing
+    | ls == [] &&  largestCount >= 5      = Just largestStraight
+    | ls == [] &&  largestCount  < 5      = Nothing
     -- | count == 5                  = Just last
     -- | count < 5 && length ls == 0 = Nothing
-    | (last + 1 == head ls)       = countFiveInRow (count+1) (head ls) (max count largestCount) (if count >= largestCount then head ls else largestStraight)  (tail ls)
+    | (last + 1 == head ls)       = countFiveInRow (count+1) (head ls) (max (count +1) largestCount) (if (count+1) > largestCount then head ls else largestStraight)  (tail ls)
     | last == head ls             = countFiveInRow count last largestCount largestStraight $ tail ls  
     | (last + 1 < head ls)       = countFiveInRow 1 (head ls) largestCount largestStraight $ tail ls  
     | (last + 1 > head ls)       = Nothing
@@ -156,7 +156,7 @@ matchingCardsToHand''  ( (a,b):xs)
     | b   == 4 = FourOfAKind a
     | b == 3 = if xs == [] then (Triple a) else (case head xs of (c, 2) -> Fullhouse (b, c); _ -> (Triple a)  )  
     | b == 2 = if xs == [] then (Pair a) else (case head xs of (c, 2) -> TwoPair (b, c); _ -> (Pair a)  )  
-    | b == 1 = HighCard $ snd $ head $ mySortTuplesByFstWithGreatestAsHead ( (a,b):xs)
+    | b == 1 = HighCard $ fst $ head $ mySortTuplesByFstWithGreatestAsHead ( (a,b):xs)
 
 
 
@@ -190,14 +190,15 @@ isHandValueFromFlush dic deck' = case Map.toList (Map.filter (\(a, b) -> a >= 5 
 -- Or even wiser, sort it by largest to smallest in one go.....
 findWinnerByBestHand ::  Deck' -> Deck' -> Deck' -> (Int, Int, Int)
 findWinnerByBestHand houseCards myCards enemyCards
-    | myStrongestHand == theirStrongestHand = --Need to check if the community hand is the same 
-        case myStrongestHand of
+    | myStrongestHand == theirStrongestHand =  --Need to check if the community hand is the same 
+        --trace ("\n " ++ (show myStrongestHand) ++ "  from  " ++ (show myCards) ++"\n" ++  (show theirStrongestHand) ++"  from  " ++ (show enemyCards) ++ " community cards "  ++ (show houseCards) ++  "\n\n"  )  
+        (case myStrongestHand of
             Pair     a       -> resFromHighestCard ( removePairFromHand myCards'' a)  ( removePairFromHand enemyCards'' a)
             TwoPair  (a, b)  -> resFromHighestCard (removeTwoPairFromHand myCards'' a b) (removeTwoPairFromHand enemyCards'' a b)
             Triple   a  -> resFromHighestCard (removeTripleFromHand myCards'' a) (removeTripleFromHand enemyCards'' a)
             HighCard a -> resFromHighestCard (removeHighCard myCards'' a)  (removeHighCard enemyCards'' a)
             -- HighCard a ->
-            _ ->  (0, 0, 1)
+            _ -> (0, 0, 1))-- trace ("\n " ++ (show houseCards) ++"\n" ++  (show myCards) ++ "   " ++ (show enemyCards))  (0, 0, 1)
     | myStrongestHand > theirStrongestHand  = (1, 0, 0)
     | myStrongestHand < theirStrongestHand  = (0, 1, 0)
 
@@ -213,18 +214,18 @@ findWinnerByBestHand houseCards myCards enemyCards
         myHandByPairs = matchingCardsToHand'' $ (mySortTuplesByLastWithGreatestAsHead . Map.toList . matchingCards) $  myCards''
         theirHandPairs     = matchingCardsToHand'' $ (mySortTuplesByLastWithGreatestAsHead . Map.toList . matchingCards) $ enemyCards'' 
         --community   = matchingCardsToHand'' $ (mySortTuplesByLastWithGreatestAsHead . Map.toList . matchingCards) $ enemyCards'' 
-        myStrongHands = (isHandValueFromFlush  (matchingFlushes $ houseCards ++ myCards) (houseCards ++ myCards)) <|> (case countFiveInRow 1 0 (head myCards'') 0  myCards'' of
+        myStrongHands = (isHandValueFromFlush  (matchingFlushes $ houseCards ++ myCards) (houseCards ++ myCards)) <|> (case countFiveInRow 1 (head myCards'') 0  0  myCards'' of
             Nothing -> Nothing
             Just i  -> Just $ Straight i)
         myStrongestHand = max (fromMaybe myHandByPairs myStrongHands) myHandByPairs
 
-        theirStrongHands = (isHandValueFromFlush  (matchingFlushes $ houseCards ++ enemyCards) (houseCards ++ enemyCards)) <|> (case countFiveInRow 1 0 (head enemyCards'') 0  enemyCards'' of
+        theirStrongHands = (isHandValueFromFlush  (matchingFlushes $ houseCards ++ enemyCards) (houseCards ++ enemyCards)) <|> (case countFiveInRow 1 (head enemyCards'') 0  0  enemyCards'' of --
             Nothing -> Nothing
             Just i  -> Just $ Straight i)
         theirStrongestHand = max (fromMaybe theirHandPairs theirStrongHands) theirHandPairs
 
         communityPairs = matchingCardsToHand'' $ (mySortTuplesByLastWithGreatestAsHead . Map.toList . matchingCards) $ houseCards'
-        communityStrongHands = (isHandValueFromFlush  (matchingFlushes $ houseCards) (houseCards ++ myCards)) <|> (case countFiveInRow 1 0 (head myCards'') 0  myCards'' of
+        communityStrongHands = (isHandValueFromFlush  (matchingFlushes $ houseCards) (houseCards ++ myCards)) <|> (case countFiveInRow 1 (head myCards'') 0 0  myCards'' of  -- This is wrong
             Nothing -> Nothing
             Just i  -> Just $ Straight i)
         --High Card removal

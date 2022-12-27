@@ -28,6 +28,8 @@ There is a big TODO.
 10. Write spec tests for the hand solver part- statistically I think I am getting into ties more than I should.
 11. -- Stretch goal.. create this for Omaha and then omaha Hi/Low (I beleive there isn't many good solvers for omaha Hi/Low therefore this could have potential on small stakes games online. )
 12. Also taking seating into account. Meaning When I am big blind, or who is first to bet
+13. Create different game type modes.... Tournament players, play much more wildly, while cash games semi-tighter and zone games super tight.
+
 
 This is a small tool in a larger project, where the goal is to create a fully automated bot to play in multiple online tournaments at once. 
 

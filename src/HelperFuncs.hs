@@ -86,3 +86,16 @@ showWinRates :: (Int, Int, Int) -> (Float, Float, Float)
 showWinRates (a1, a2, a3) = ((fromIntegral a1) / (fromIntegral (a1 + a2 + a3)),  (fromIntegral a2) / (fromIntegral (a1 + a2 + a3) ) ,  (fromIntegral a3) / (fromIntegral (a1 + a2 + a3)) )
 
 
+properEnding1 :: Int -> String
+properEnding1 0 = " FLOP "
+properEnding1 3 = " Turn "
+properEnding1 4 = " River "
+properEnding1 5 = " NO VALUE"
+properEnding1 _ = " SOMETHING IS WRONG" 
+
+properEnding2 :: Int -> String
+properEnding2 0 = " River "
+properEnding2 3 = " River "
+properEnding2 4 = " River "
+properEnding2 5 = " NO VALUE"
+properEnding2 _ = " SOMETHING IS WRONG" 
