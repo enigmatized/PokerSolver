@@ -12,6 +12,15 @@ So I thought it would be better to solve for the probability given a random hand
 
 I should note another motivation for this project was to learn some haskell while practicing some stats/math.
 
+### How to use
+
+1. You will need to build first. Using stack, all you have to do is `stack build`
+2. To run the command line looks something like `stack exec  -- PokerCalculator-exe H 13 H 14 2 1 6 0`
+First Four arguements is captial Suite, number of card 2-14, Suite card 2-14.
+The last arguements in the example above is gain if bet is taken, loss if bet is taken, number of players.
+The last arguement is a dummie value.
+
+
 I will write about this more.
 There is a big TODO.
 1. WRite up documentation on how to use it a command line tool.

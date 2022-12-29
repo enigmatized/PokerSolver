@@ -1,9 +1,27 @@
 module CardTypes where
+
+
+
+data HandValue = 
+    HighCard        Int
+    | Pair          Int
+    | TwoPair       (Int, Int)
+    | Triple        Int
+    | Straight      Int
+    | Flush         Int 
+    | Fullhouse     (Int, Int)
+    | FourOfAKind   Int
+    | StraightFlush Int
+    deriving (Show, Ord, Eq)
+
+
 -- What do I clearly want?
--- I want the odds at flop
--- Fix this head error
--- Make the monte carlo simulation quicker
--- Add it so it does five cards 
+-- 1. I want the odds at flop in a faster manner. Right now it takes too long to really uese
+-- 2. 
+-- 3. Make the monte carlo simulation quicker ... This is create for post flop, but not pre-flop.
+-- 4. 
+
+
 -- 
 -- 1. 
 --   do the entire hand 
@@ -32,20 +50,13 @@ module CardTypes where
 -- Super advance is being to input their range or one of their cards if you have an idea what that might be
 
 
-
-
-
 -- TODO FOR PROJECT
 -- I also should build a spec test for each function.
 -- More effcient monte carlos simulation
--- Turning cards into polymorphic type 
--- 
+-- Turning cards into polymorphic type  -> actually this might not be a good idea
+-- As that would force more thunks at runtime.
+-- Maybe everything should be just bytestring
 
-
--- Then start testing it out --- 
--- Then set it up for effcient monte carlo simulation 
--- because there is no way this is going to work out well with adding
--- 2 more cards for each flop. 
 
 -- Math here for the entire pipe-line
 --   50 C 2 = 1225
@@ -59,29 +70,9 @@ module CardTypes where
 -- = 900  * 900  = 890000   
 
 
--- SO what do I need to do to test this out in a tournament tonight?
--- Make sure flop is working
--- Test out why my ties or so high
--- Maybe create spec tests for this to debug this
--- Add in if you are playing with tight or not tight players
--- 
-
-
 --Figuring out a way to save the calculations before pre-flop
 -- Also keeping the program runnning for flop
 
-
-data HandValue = 
-    HighCard        Int
-    | Pair          Int
-    | TwoPair       (Int, Int)
-    | Triple        Int
-    | Straight      Int
-    | Flush         Int 
-    | Fullhouse     (Int, Int)
-    | FourOfAKind   Int
-    | StraightFlush Int
-    deriving (Show, Ord, Eq)
 
 
 

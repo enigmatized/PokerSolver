@@ -80,19 +80,10 @@ main = do
 
    let xxxxxx = (\(a1, a2, a3) (a4, a5, a6) ->  (a1+ a4, a2 + a5, a3 + a6))
 
-   -- let lsss = sort $ map (\(f,s) -> s ) [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )] 
-   -- putStrLn $ ("Straight check hand " ++ ) $ show lsss
-   -- putStrLn $ ("Straight check hand " ++ ) $ show $ countFiveInRow 1 (head lsss) 0 0  lsss
-   -- n44 <- getLine
-   -- putStrLn $ ("winning hand" ++ ) $ show $ findWinnerByBestHand [('H', 14 ), ('H', 13 ), ('H', 12 )] [('H', 10 ), ('H', 11 )] [('C', 10 ), ('C', 11 )]
-   -- putStrLn $ ("map  looks like " ++ ) $ show $ (matchingFlushes $ sort [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )])
-   -- putStrLn $ ("filtermap looks like " ++ ) $ show $ Map.filter (\(a, b) -> a >= 5 ) (matchingFlushes $  sort [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )])
-   -- putStrLn $ ("Matching flushes" ++ ) $ show $ isHandValueFromFlush (matchingFlushes $ sort [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )])   [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )]
-   
-   -- n2 <- getLine
+
 
    let communityCardsFlop = sort $ makeDeckFromCommmunity (drop 8 args) --Command line arguements must always have 8 arguements
-   putStrLn $ (" communityCardsFlop  \n \n" ++) $ show  communityCardsFlop
+   putStrLn $ (" communityCardsFlop\t" ++) $ show  communityCardsFlop
    
 
    let newDeck = filter (\xxxxx -> not $  xxxxx `elem`  communityCardsFlop) deckAfterMyCardsTakenOut
@@ -109,13 +100,13 @@ main = do
    
    let enemyDeckLength = (length clearnedUpWorthyEnenmyStartingHands) -30
 
-   let batchSize = if length communityCardsFlop == 0 then 8 else (if length communityCardsFlop == 3 then 30 else 40)
+   let batchSize = if length communityCardsFlop == 0 then 2 else (if length communityCardsFlop == 3 then 30 else 40)
    
    newRes <-  monteCarloSimulation myCards newDeck clearnedUpWorthyEnenmyStartingHands communityCardsFlop enemyDeckLength batchSize
    putStrLn $ ("Results  " ++) $ show $ sort newRes
    let flop  = [aaa | (aaa,_ )<- newRes ]
    let river = [bbb | (_,  bbb )<- newRes]
-   let winRatesCalculatedFlop  = showWinRates $ foldr  xxxxxx   (0, 0, 0)  flop
+   let winRatesCalculatedFlop  = showWinRates $ foldr  xxxxxx  (0, 0, 0)  flop
    let winRatesCalculatedRiver = showWinRates $ foldr  xxxxxx  (0, 0, 0)  river
    putStrLn $ ("Results from MONTE CARLO  (Win%/loss%/Tie%)  " ++ ) $ show winRatesCalculatedFlop
    putStrLn $ (("Results from MONTE CARLO  Expected Value  " ++ (properEnding1 $ length communityCardsFlop ) ) ++)  $ show $ expectedValueIsh winRatesCalculatedFlop ( wouldWin ,  wouldLose )--((read wouldWin :: Int), (read wouldLose :: Int))

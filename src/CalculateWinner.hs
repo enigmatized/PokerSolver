@@ -8,7 +8,6 @@
 module CalculateWinner where
 
 import Data.List
---import Data.Map    (Map)
 import Test.QuickCheck
 import Data.Foldable
 import Data.Maybe
@@ -20,7 +19,7 @@ import Data.Function (on)
 import DealCards
 import HelperFuncs
 
-import Debug.Trace
+#import Debug.Trace
 
 
 
@@ -45,45 +44,12 @@ gettOddsByTestingAgainstPossibleEnemyHands    flop    myCards   deck    enemyCar
 
 
 
-
---- So this is a issue.
--- Way too much duplicate calculations
--- How do I deal with this?
--- Just turn flop to 5 card and make the moteo carlo simulation smaller
--- 
--- makeFlopsAndGetOddsForFlopsAndRiver :: Deck' -> Deck' -> Deck' -> ( (Int, Int, Int), (Int, Int, Int))
--- makeFlopsAndGetOddsForFlopsAndRiver myCards  deck enemyCards   = foldl' addTriplesMultiPair ((0,0,0), (0,0,0))  [ | x <- mapM (const deck ) [1..5], (snd $  head x) < ( snd $ head  (tail x)) ]
-
-
--- (findWinnerByBestHand myCards enemyCards (take 3 x), findWinnerByBestHand myCards enemyCards x) 
-
--- Get a hand
---
---
---
-
-
--- elemFix ::
--- elemFix ::
-
--- removeCards'NotFancyHaskell :: Deck' -> [(Char, Int)] -> Deck'
--- removeCards'NotFancyHaskell deck toRemoveCards = filter (not . (`elem` toRemoveCards))  deck  
-
-
-
-
---removeCardByInts :: Deck' -> [Int] -> ( Deck' , Deck' )
---removeCardByInts deck removeIndex =  ( (map (\index -> take index deck ++ drop (1 + removeIndex) deck)  removeIndex), (map ( deck !!) removeIndex ) )
-
 removeCardByInts :: (Deck', Deck') -> [Int] -> ( Deck' , Deck' )
 removeCardByInts (deck, res) (x:xs) = removeCardByInts (take x deck ++ drop (1 + x) deck, res ++ [ (deck !! x) ] )  xs  
 removeCardByInts deck []  =   deck 
 
-
---( (map (\index -> take index
-
---findPairs :: [(Char, [Int]] -> [ ]  
---findPairs
+--TODO !!!!!!
+--Note to caller, for this to work the list of nums should be sorted
 --Need to add a check for ace 2 3 4 5 straight
 countFiveInRow :: Int -> Int -> Int -> Int -> [Int] -> Maybe  Int
 countFiveInRow count last largestCount largestStraight  ls 
@@ -97,50 +63,6 @@ countFiveInRow count last largestCount largestStraight  ls
     | (last + 1 > head ls)       = Nothing
     -- | otherwise = Nothing
 
-
--- -- This function should only be given sorted from least to greatest cards
--- countFiveInRowForAllCards ::  [Int] -> Maybe  Int
--- countFiveInRowForAllCards ls
---     | length ls == 5 =  countFiveInRow 0 (head ls) 
-
-
-
-
---- TODO Write this function that solves StraightFlush, Flush and Straight in o(n)
--- countFiveInRow'' :: Int -> Int -> Int -> Int ->  [(Char, Int)] ->  -- (IsStraight, last StraightValue, isStraightFlush, flushLast)
--- countFiveInRow'' curStraightCount straightCount highestStraight f last  ls 
---     | ls == [] && count >= 5      = Just last
---     | ls == [] && count < 5       = Nothing
---     | count == 5                  = Just last
---     | count < 5 && length ls == 0 = Nothing
---     | (last + 1 == head ls)       = countFiveInRow (count+1) (head ls) (tail ls)
---     | last == head ls             = countFiveInRow count last $ tail ls  
---     | (last + 1 < head ls) && count < 5       = Nothing
---     | (last + 1 < head ls) && count >= 5       =  Just last
---     | otherwise = Nothing
-
-
-
---
-
-
-
-
-
--- This is a really complicated calculation that I think could be calculated in one function with pattern matching
---I can easily make this function check for triples and quads.
-
--- getPairs :: [Int] -> [Int] -> [(Int, Int)]
--- getPairs communityCards [a, b] 
---     |  a == b    =   [( a, (2 +) $ length $ intersect communityCards [a]  )] ++ [communityCards \\ [a, b]]
---     |    
---     where 
---         communityCardsWithNotCountingDealtCards = [communityCards \\ [a, b]]
-
-
---Hmmm I need to create a new type
---Something that can be compared to each otherwis
-
 mySortTuplesByLastWithGreatestAsHead :: Ord b => [(a, b)] -> [(a, b)]
 mySortTuplesByLastWithGreatestAsHead = sortBy (flip compare `on` snd)
 
@@ -149,7 +71,11 @@ mySortTuplesByFstWithGreatestAsHead = sortBy (flip compare `on` fst)
 
 
 
-
+-- This sometimes errors?
+-- I have no clue why?
+-- Says un-exastive pattern
+-- Seems like that would be the case but that should never actually happen. 
+-- Maybe the deck is not being cleaned properly so there is more than a 4 of a kind happening?!
 -- I have to test if there are two four of a kinds, then larges is what's picked first.
 matchingCardsToHand'' :: [(Int, Int)] -> HandValue
 matchingCardsToHand''  ( (a,b):xs)  
@@ -241,89 +167,6 @@ findWinnerByBestHand houseCards myCards enemyCards
 
 
 
-
-    -- nub $ (intersect  x  y) ++ (x \\ (nub x)) ++ (y \\ (nub y))
-    -- where
-    --      !x  = map (\(f,s) -> s )  xx
-    --      !y  = map (\(f,s) -> s )  yy
-
-
-
--- (wins, losses, ties, outOf)
-
-
----OH Wow this logic is fucked up.
--- I am not calculating if the community card case
--- I am starting to see, to calculate somethng to the  River
--- It has to be a monte carlo simulation to be able to do in live games.
--- If I get this working tonight.
--- I could probably make the monte Carlo Simulation part work rather fast  
--- I am starting to think that 
--- winnerByPairs :: Deck' -> Deck' -> Deck' -> (Int, Int, Int)  -- (win, loss, tie)
--- winnerByPairs houseCards myCards enemyCards   
---     | length myPairs > length theirPairs            = (1, 0, 0)
---     | length myPairs < length theirPairs            = (0, 1, 0)
---     | length myPairs == 0 && length theirPairs == 0 = (0,0,0) --Check highest card
---     | length myPairs == length theirPairs           = compareValues (last myPairs) (last theirPairs)
-
---     where
---         tform = map (\(f,s) -> s )
---         houseCards'  = sort $ tform  houseCards
---         myCards'     = sort $ tform  myCards
---         enemyCards'  = sort $ tform  enemyCards
---         myPairs    = getPairs houseCards' myCards'
---         theirPairs = getPairs houseCards' enemyCards'
---         compareValues :: Int -> Int -> (Int, Int, Int)
---         compareValues x y = if x > y then (1, 0, 0) else (if x <  y then (0, 1, 0) else (0,0,1)) 
- 
-
--- highestCardCheck :: Deck' -> Deck'   -> (Int, Int, Int)
--- highestCardCheck myCards enemyCards  = 
-
-
---THIS IS A GOOD FUNCTION
--- winnerByPairs' :: Deck' -> Deck' -> Deck' -> (Int, Int, Int)  -- (win, loss, tie)
--- winnerByPairs' !myCards !enemyCards !houseCards   
---     | length myPairs > length theirPairs            = (1, 0, 0)
---     | length myPairs < length theirPairs            = (0, 1, 0)
---     | length myPairs == 0 && length theirPairs == 0 = (0,0,0) --Check highest card
---     | length myPairs == length theirPairs           = compareValues (last myPairs) (last theirPairs)
---     where
---         myPairs    = sort $  getPairs houseCards myCards
---         theirPairs = sort $  getPairs houseCards enemyCards
---         compareValues :: Int -> Int -> (Int, Int, Int)
---         compareValues x y = if x > y then (1, 0, 0) else (if x <  y then (0, 1, 0) else (0,0,1)) 
-
-
--- Note this only gets winner, it does not tell me what winner is
--- Or how I coould win the next hand
--- These are just flops
--- Also this is not ideal.
--- It's almost like there should be a function seperate for each
--- So if no pair
--- 
-
--- Before this is called
--- The community cards should be matched 
--- and added to the pairs or triples maps
--- Also the hands dealt
-
--- winnersByMatchingOrHighCard :: Deck' -> Deck' -> Deck' -> Map String [Int] -> Map String [Int] -> Map String [Int] -> (String, String) -> (Int, Int, Int)  -- (win, loss, tie)
--- winnersByMatchingOrHighCard [(a, b), (c, d)] [(e, f), (g, h)] []  highCards piars triples winner  = case winner of ('Me', _) -> (1,0,0);  ('Enemy', _) -> (1,0,0); _ -> (0,0,1);
--- winners [(_, b), (_, d)] [(_, f), (_, h)] (x:xs)  highCards piars triples winner = (0,0,0) 
---        | (b == x) || (d == x)  &&  (f == x) || (h /= x)     = (0,0,0) 
---     -- |
---     -- | 
---        where
---             if Map.memeber cardNum piars
-
-
-
-
-
---countFiveInRow :: Int -> (Int,Int) -> [(Int, Int)] -> (Bool, Int)
---countFiveInRow 5 
---countFiveInRow count compare rest = if (fst compare ) == fst head rest then 
 
 allCalc :: [(Char, Int)] -> [[(Char, Int)]] -> [(Char, Int)] -> (Int, Int, Int)
 allCalc  myCards allPossibleTwoPairs deck =    foldr addTriples (0,0,0) $ map (calcPairs myCards deck)  allPossibleTwoPairs

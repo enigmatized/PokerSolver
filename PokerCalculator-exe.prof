@@ -1,383 +1,359 @@
-	Mon Dec 26 20:09 2022 Time and Allocation Profiling Report  (Final)
+	Wed Dec 28 19:07 2022 Time and Allocation Profiling Report  (Final)
 
-	   PokerCalculator-exe +RTS -N -p -RTS C 12 C 13 1.2 1 3 2
+	   PokerCalculator-exe +RTS -N -p -RTS H 9 S 7 2 1 4 0
 
-	total time  =       28.40 secs   (88480 ticks @ 1000 us, 16 processors)
-	total alloc = 226,260,805,976 bytes  (excludes profiling overheads)
+	total time  =        0.58 secs   (1806 ticks @ 1000 us, 16 processors)
+	total alloc = 5,605,938,016 bytes  (excludes profiling overheads)
 
 COST CENTRE                                                           MODULE          SRC                                      %time %alloc
 
-matchingFlushes                                                       CalculateWinner src/CalculateWinner.hs:(171,1)-(172,40)   13.7   22.2
-matchingCards                                                         CalculateWinner src/CalculateWinner.hs:(167,1)-(168,34)   13.1   19.9
-countFiveInRow                                                        CalculateWinner src/CalculateWinner.hs:(89,1)-(97,42)     10.1    3.7
-findWinnerByBestHand.enemyCards''                                     CalculateWinner src/CalculateWinner.hs:213:9-58            8.0    9.4
-mySortTuplesByLastWithGreatestAsHead                                  CalculateWinner src/CalculateWinner.hs:145:1-69            8.0    8.3
-findWinnerByBestHand                                                  CalculateWinner src/CalculateWinner.hs:(192,1)-(238,81)    7.7    0.5
-findWinnerByBestHand.myCards''                                        CalculateWinner src/CalculateWinner.hs:212:9-55            7.0    8.2
-findWinnerByBestHand.tform                                            CalculateWinner src/CalculateWinner.hs:206:9-34            5.8    6.8
-isHandValueFromFlush                                                  CalculateWinner src/CalculateWinner.hs:(177,1)-(183,21)    3.4    0.0
-findWinnerByBestHand.theirHandPairs                                   CalculateWinner src/CalculateWinner.hs:215:9-135           3.0    3.9
-findWinnerByBestHand.myHandByPairs                                    CalculateWinner src/CalculateWinner.hs:214:9-128           3.0    4.1
-gettOddsByTestingAgainstPossibleEnemyHands.noCardsProvidedRandomFlops CalculateWinner src/CalculateWinner.hs:43:9-190            2.4    3.1
-gettOddsByTestingAgainstPossibleEnemyHands.checkForWinnersOrLoser     CalculateWinner src/CalculateWinner.hs:41:9-123            2.0    0.0
-mySortTuplesByFstWithGreatestAsHead                                   CalculateWinner src/CalculateWinner.hs:148:1-68            1.9    1.8
-matchingCardsToHand''                                                 CalculateWinner src/CalculateWinner.hs:(155,1)-(159,86)    1.7    0.6
-findWinnerByBestHand.theirStrongHands                                 CalculateWinner src/CalculateWinner.hs:(222,9)-(224,41)    1.7    2.5
-findWinnerByBestHand.myStrongHands                                    CalculateWinner src/CalculateWinner.hs:(217,9)-(219,41)    1.6    2.5
-matchingFlushes.\                                                     CalculateWinner src/CalculateWinner.hs:171:66-81           1.3    0.8
+matchingFlushes                                                       CalculateWinner src/CalculateWinner.hs:(171,1)-(172,40)   13.8   22.2
+matchingCards                                                         CalculateWinner src/CalculateWinner.hs:(167,1)-(168,34)   12.7   19.8
+countFiveInRow                                                        CalculateWinner src/CalculateWinner.hs:(89,1)-(97,42)      9.6    2.8
+mySortTuplesByLastWithGreatestAsHead                                  CalculateWinner src/CalculateWinner.hs:145:1-69            8.6    8.1
+findWinnerByBestHand                                                  CalculateWinner src/CalculateWinner.hs:(192,1)-(238,81)    8.0    0.5
+findWinnerByBestHand.myCards''                                        CalculateWinner src/CalculateWinner.hs:212:9-55            7.4   10.0
+findWinnerByBestHand.enemyCards''                                     CalculateWinner src/CalculateWinner.hs:213:9-58            7.3    9.4
+findWinnerByBestHand.tform                                            CalculateWinner src/CalculateWinner.hs:206:9-34            6.1    6.7
+isHandValueFromFlush                                                  CalculateWinner src/CalculateWinner.hs:(177,1)-(183,21)    3.8    0.0
+findWinnerByBestHand.theirHandPairs                                   CalculateWinner src/CalculateWinner.hs:215:9-135           3.0    3.8
+matchingCardsToHand''                                                 CalculateWinner src/CalculateWinner.hs:(155,1)-(159,86)    2.4    0.6
+findWinnerByBestHand.myHandByPairs                                    CalculateWinner src/CalculateWinner.hs:214:9-128           2.3    4.0
+gettOddsByTestingAgainstPossibleEnemyHands.noCardsProvidedRandomFlops CalculateWinner src/CalculateWinner.hs:43:9-190            2.2    3.2
+gettOddsByTestingAgainstPossibleEnemyHands.checkForWinnersOrLoser     CalculateWinner src/CalculateWinner.hs:41:9-123            2.2    0.0
+mySortTuplesByFstWithGreatestAsHead                                   CalculateWinner src/CalculateWinner.hs:148:1-68            2.0    1.6
+matchingFlushes.\                                                     CalculateWinner src/CalculateWinner.hs:171:66-81           1.6    0.7
+findWinnerByBestHand.myStrongHands                                    CalculateWinner src/CalculateWinner.hs:(217,9)-(219,41)    1.4    2.4
+findWinnerByBestHand.theirStrongHands                                 CalculateWinner src/CalculateWinner.hs:(222,9)-(224,41)    1.3    2.5
+compare                                                               CardTypes       src/CardTypes.hs:84:21-23                  1.2    0.0
 
 
                                                                                                                                                                               individual      inherited
 COST CENTRE                                                                 MODULE                      SRC                                               no.      entries  %time %alloc   %time %alloc
 
-MAIN                                                                        MAIN                        <built-in>                                         575           0    0.0    0.0   100.0  100.0
- CAF                                                                        GHC.Conc.Signal             <entire-module>                                    693           0    0.0    0.0     0.0    0.0
- CAF                                                                        GHC.Float                   <entire-module>                                    685           0    0.0    0.0     0.0    0.0
- CAF                                                                        GHC.IO.Encoding             <entire-module>                                    677           0    0.0    0.0     0.0    0.0
- CAF                                                                        GHC.IO.Encoding.Iconv       <entire-module>                                    675           0    0.0    0.0     0.0    0.0
- CAF                                                                        GHC.IO.Handle.FD            <entire-module>                                    667           0    0.0    0.0     0.0    0.0
- CAF                                                                        GHC.IO.Handle.Text          <entire-module>                                    665           0    0.0    0.0     0.0    0.0
- CAF                                                                        GHC.Read                    <entire-module>                                    651           0    0.0    0.0     0.0    0.0
- CAF                                                                        Text.Read.Lex               <entire-module>                                    629           0    0.0    0.0     0.0    0.0
- CAF                                                                        GHC.Event.Thread            <entire-module>                                    621           0    0.0    0.0     0.0    0.0
- CAF                                                                        GHC.Event.Poll              <entire-module>                                    597           0    0.0    0.0     0.0    0.0
- CAF:$dEq_r3G2                                                              CalculateWinner             <no location info>                                1094           0    0.0    0.0     0.0    0.0
- CAF:$dEq_r9T8                                                              Main                        <no location info>                                1128           0    0.0    0.0     0.0    0.0
- CAF:$fRandomGenQCGen2                                                      Test.QuickCheck.Random      <no location info>                                 976           0    0.0    0.0     0.0    0.0
-  genWord64                                                                 Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:47:3-33             1327           0    0.0    0.0     0.0    0.0
-   genWord64                                                                System.Random.Internal      src/System/Random/Internal.hs:566:3-27            1328           1    0.0    0.0     0.0    0.0
- CAF:$fRandomGenQCGen_$cgenWord64                                           Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:47:3-11              977           0    0.0    0.0     0.0    0.0
-  genWord64                                                                 Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:47:3-33             1325           1    0.0    0.0     0.0    0.0
- CAF:$fRandomGenStdGen6                                                     System.Random.Internal      <no location info>                                 957           0    0.0    0.0     0.0    0.0
-  genWord64                                                                 System.Random.Internal      src/System/Random/Internal.hs:556:19-27           1196           1    0.0    0.0     0.0    0.0
-   genWord64                                                                System.Random.Internal      src/System/Random/Internal.hs:566:3-27            1197           1    0.0    0.0     0.0    0.0
- CAF:deck_r9T9                                                              Main                        <no location info>                                1129           0    0.0    0.0     0.0    0.0
-  main                                                                      Main                        app/Main.hs:(47,1)-(114,141)                      1376           0    0.0    0.0     0.0    0.0
-   main.d                                                                   Main                        app/Main.hs:59:8-89                               1377           0    0.0    0.0     0.0    0.0
-    makeDec'                                                                DealCards                   src/DealCards.hs:24:1-59                          1378           1    0.0    0.0     0.0    0.0
-     makeDec'.\                                                             DealCards                   src/DealCards.hs:24:43-53                         1379           4    0.0    0.0     0.0    0.0
- CAF:goldenGamma                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:236:1-11             795           0    0.0    0.0     0.0    0.0
-  goldenGamma                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:236:1-32            1227           1    0.0    0.0     0.0    0.0
- CAF:initSMGen1                                                             System.Random.SplitMix      <no location info>                                 796           0    0.0    0.0     0.0    0.0
-  initSMGen                                                                 System.Random.SplitMix      src/System/Random/SplitMix.hs:381:1-36            1174           1    0.0    0.0     0.0    0.0
- CAF:initialSeed1                                                           System.Random.SplitMix.Init <no location info>                                 756           0    0.0    0.0     0.0    0.0
-  initialSeed                                                               System.Random.SplitMix.Init src/System/Random/SplitMix/Init.hs:40:1-26        1176           1    0.0    0.0     0.0    0.0
- CAF:k1_r9TK                                                                Main                        <no location info>                                1147           0    0.0    0.0     0.0    0.0
-  main                                                                      Main                        app/Main.hs:(47,1)-(114,141)                      1457           0    0.0    0.0     0.0    0.0
-   main.winRatesCalculatedRiver                                             Main                        app/Main.hs:110:8-80                              1458           0    0.0    0.0     0.0    0.0
-    main.xxxxxx                                                             Main                        app/Main.hs:74:8-75                               1459           1    0.0    0.0     0.0    0.0
- CAF:k_r9TD                                                                 Main                        <no location info>                                1142           0    0.0    0.0     0.0    0.0
-  main                                                                      Main                        app/Main.hs:(47,1)-(114,141)                      1446           0    0.0    0.0     0.0    0.0
-   main.winRatesCalculatedFlop                                              Main                        app/Main.hs:109:8-79                              1447           0    0.0    0.0     0.0    0.0
-    main.xxxxxx                                                             Main                        app/Main.hs:74:8-75                               1448           1    0.0    0.0     0.0    0.0
- CAF:m1_r3P8                                                                HelperFuncs                 <no location info>                                1050           0    0.0    0.0     0.0    0.0
-  shuffle''                                                                 HelperFuncs                 src/HelperFuncs.hs:(67,1)-(78,42)                 1188           0    0.0    0.0     0.0    0.0
-   shuffle''.\                                                              HelperFuncs                 src/HelperFuncs.hs:(69,29)-(74,21)                1189           0    0.0    0.0     0.0    0.0
-    randomRIO                                                               System.Random               src/System/Random.hs:550:1-46                     1190           0    0.0    0.0     0.0    0.0
-     randomR                                                                System.Random               src/System/Random.hs:235:3-43                     1191           0    0.0    0.0     0.0    0.0
-      uniformRM                                                             System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1192           0    0.0    0.0     0.0    0.0
-       uniformM                                                             System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1193           0    0.0    0.0     0.0    0.0
-        uniformWord64                                                       System.Random.Internal      src/System/Random/Internal.hs:456:3-35            1194           1    0.0    0.0     0.0    0.0
- CAF:m1_r9Tl                                                                Main                        <no location info>                                1131           0    0.0    0.0     0.0    0.0
-  main                                                                      Main                        app/Main.hs:(47,1)-(114,141)                      1314           0    0.0    0.0     0.0    0.0
-   monteCarloSimulation                                                     Main                        app/Main.hs:(32,1)-(35,111)                       1315           0    0.0    0.0     0.0    0.0
-    monteCarloSimulation.\                                                  Main                        app/Main.hs:(32,144)-(35,111)                     1316           0    0.0    0.0     0.0    0.0
+MAIN                                                                        MAIN                        <built-in>                                         580           0    0.4    0.0   100.0  100.0
+ CAF                                                                        GHC.Conc.Signal             <entire-module>                                    698           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.IO.Encoding             <entire-module>                                    682           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.IO.Encoding.Iconv       <entire-module>                                    680           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.IO.Exception            <entire-module>                                    674           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.IO.Handle.FD            <entire-module>                                    672           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.IO.Handle.Text          <entire-module>                                    670           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.Read                    <entire-module>                                    656           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.TopHandler              <entire-module>                                    647           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.Event.Thread            <entire-module>                                    626           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.Event.Control           <entire-module>                                    605           0    0.0    0.0     0.0    0.0
+ CAF                                                                        GHC.Event.Poll              <entire-module>                                    602           0    0.0    0.0     0.0    0.0
+ CAF:$dEq_r6hZ                                                              CalculateWinner             <no location info>                                1104           0    0.0    0.0     0.0    0.0
+ CAF:$dEq_r9TM                                                              Main                        <no location info>                                1138           0    0.0    0.0     0.0    0.0
+ CAF:$fRandomGenQCGen2                                                      Test.QuickCheck.Random      <no location info>                                 981           0    0.0    0.0     0.0    0.0
+  genWord64                                                                 Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:47:3-33             1337           0    0.0    0.0     0.0    0.0
+   genWord64                                                                System.Random.Internal      src/System/Random/Internal.hs:566:3-27            1338           1    0.0    0.0     0.0    0.0
+ CAF:$fRandomGenQCGen_$cgenWord64                                           Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:47:3-11              982           0    0.0    0.0     0.0    0.0
+  genWord64                                                                 Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:47:3-33             1335           1    0.0    0.0     0.0    0.0
+ CAF:$fRandomGenStdGen6                                                     System.Random.Internal      <no location info>                                 962           0    0.0    0.0     0.0    0.0
+  genWord64                                                                 System.Random.Internal      src/System/Random/Internal.hs:556:19-27           1206           1    0.0    0.0     0.0    0.0
+   genWord64                                                                System.Random.Internal      src/System/Random/Internal.hs:566:3-27            1207           1    0.0    0.0     0.0    0.0
+ CAF:deck_r9TN                                                              Main                        <no location info>                                1139           0    0.0    0.0     0.0    0.0
+  main                                                                      Main                        app/Main.hs:(54,1)-(123,186)                      1386           0    0.0    0.0     0.0    0.0
+   main.d                                                                   Main                        app/Main.hs:66:8-89                               1387           0    0.0    0.0     0.0    0.0
+    makeDec'                                                                DealCards                   src/DealCards.hs:24:1-59                          1388           1    0.0    0.0     0.0    0.0
+     makeDec'.\                                                             DealCards                   src/DealCards.hs:24:43-53                         1389           4    0.0    0.0     0.0    0.0
+ CAF:goldenGamma                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:236:1-11             800           0    0.0    0.0     0.0    0.0
+  goldenGamma                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:236:1-32            1237           1    0.0    0.0     0.0    0.0
+ CAF:initSMGen1                                                             System.Random.SplitMix      <no location info>                                 801           0    0.0    0.0     0.0    0.0
+  initSMGen                                                                 System.Random.SplitMix      src/System/Random/SplitMix.hs:381:1-36            1184           1    0.0    0.0     0.0    0.0
+ CAF:initialSeed1                                                           System.Random.SplitMix.Init <no location info>                                 761           0    0.0    0.0     0.0    0.0
+  initialSeed                                                               System.Random.SplitMix.Init src/System/Random/SplitMix/Init.hs:40:1-26        1186           1    0.0    0.0     0.0    0.0
+ CAF:m1_r3QT                                                                HelperFuncs                 <no location info>                                1060           0    0.0    0.0     0.0    0.0
+  shuffle''                                                                 HelperFuncs                 src/HelperFuncs.hs:(67,1)-(78,42)                 1198           0    0.0    0.0     0.0    0.0
+   shuffle''.\                                                              HelperFuncs                 src/HelperFuncs.hs:(69,29)-(74,21)                1199           0    0.0    0.0     0.0    0.0
+    randomRIO                                                               System.Random               src/System/Random.hs:550:1-46                     1200           0    0.0    0.0     0.0    0.0
+     randomR                                                                System.Random               src/System/Random.hs:235:3-43                     1201           0    0.0    0.0     0.0    0.0
+      uniformRM                                                             System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1202           0    0.0    0.0     0.0    0.0
+       uniformM                                                             System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1203           0    0.0    0.0     0.0    0.0
+        uniformWord64                                                       System.Random.Internal      src/System/Random/Internal.hs:456:3-35            1204           1    0.0    0.0     0.0    0.0
+ CAF:m1_r9U0                                                                Main                        <no location info>                                1141           0    0.0    0.0     0.0    0.0
+  main                                                                      Main                        app/Main.hs:(54,1)-(123,186)                      1324           0    0.0    0.0     0.0    0.0
+   monteCarloSimulation                                                     Main                        app/Main.hs:(37,1)-(40,111)                       1325           0    0.0    0.0     0.0    0.0
+    monteCarloSimulation.\                                                  Main                        app/Main.hs:(37,144)-(40,111)                     1326           0    0.0    0.0     0.0    0.0
+     choose                                                                 Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:1-59               1327           0    0.0    0.0     0.0    0.0
+      choose.\                                                              Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:29-58              1328           0    0.0    0.0     0.0    0.0
+       choose.\.(...)                                                       Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:33-53              1329           0    0.0    0.0     0.0    0.0
+        randomR                                                             System.Random               src/System/Random.hs:235:3-43                     1330           0    0.0    0.0     0.0    0.0
+         uniformRM                                                          System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1331           0    0.0    0.0     0.0    0.0
+          uniformM                                                          System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1332           0    0.0    0.0     0.0    0.0
+           uniformWord64                                                    System.Random.Internal      src/System/Random/Internal.hs:456:3-35            1333           1    0.0    0.0     0.0    0.0
+ CAF:m3_r3QV                                                                HelperFuncs                 <no location info>                                1061           0    0.0    0.0     0.0    0.0
+  shuffle''                                                                 HelperFuncs                 src/HelperFuncs.hs:(67,1)-(78,42)                 1190           0    0.0    0.0     0.0    0.0
+   shuffle''.\                                                              HelperFuncs                 src/HelperFuncs.hs:(69,29)-(74,21)                1191           0    0.0    0.0     0.0    0.0
+    randomRIO                                                               System.Random               src/System/Random.hs:550:1-46                     1192           0    0.0    0.0     0.0    0.0
+     randomR                                                                System.Random               src/System/Random.hs:235:3-43                     1193           0    0.0    0.0     0.0    0.0
+      uniformRM                                                             System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1194           0    0.0    0.0     0.0    0.0
+       uniformM                                                             System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1195           1    0.0    0.0     0.0    0.0
+ CAF:m3_r9U2                                                                Main                        <no location info>                                1142           0    0.0    0.0     0.0    0.0
+  main                                                                      Main                        app/Main.hs:(54,1)-(123,186)                      1314           0    0.0    0.0     0.0    0.0
+   monteCarloSimulation                                                     Main                        app/Main.hs:(37,1)-(40,111)                       1315           0    0.0    0.0     0.0    0.0
+    monteCarloSimulation.\                                                  Main                        app/Main.hs:(37,144)-(40,111)                     1316           0    0.0    0.0     0.0    0.0
      choose                                                                 Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:1-59               1317           0    0.0    0.0     0.0    0.0
       choose.\                                                              Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:29-58              1318           0    0.0    0.0     0.0    0.0
        choose.\.(...)                                                       Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:33-53              1319           0    0.0    0.0     0.0    0.0
         randomR                                                             System.Random               src/System/Random.hs:235:3-43                     1320           0    0.0    0.0     0.0    0.0
          uniformRM                                                          System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1321           0    0.0    0.0     0.0    0.0
-          uniformM                                                          System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1322           0    0.0    0.0     0.0    0.0
-           uniformWord64                                                    System.Random.Internal      src/System/Random/Internal.hs:456:3-35            1323           1    0.0    0.0     0.0    0.0
- CAF:m3_r3Pa                                                                HelperFuncs                 <no location info>                                1051           0    0.0    0.0     0.0    0.0
-  shuffle''                                                                 HelperFuncs                 src/HelperFuncs.hs:(67,1)-(78,42)                 1180           0    0.0    0.0     0.0    0.0
-   shuffle''.\                                                              HelperFuncs                 src/HelperFuncs.hs:(69,29)-(74,21)                1181           0    0.0    0.0     0.0    0.0
-    randomRIO                                                               System.Random               src/System/Random.hs:550:1-46                     1182           0    0.0    0.0     0.0    0.0
-     randomR                                                                System.Random               src/System/Random.hs:235:3-43                     1183           0    0.0    0.0     0.0    0.0
-      uniformRM                                                             System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1184           0    0.0    0.0     0.0    0.0
-       uniformM                                                             System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1185           1    0.0    0.0     0.0    0.0
- CAF:m3_r9Tn                                                                Main                        <no location info>                                1132           0    0.0    0.0     0.0    0.0
-  main                                                                      Main                        app/Main.hs:(47,1)-(114,141)                      1304           0    0.0    0.0     0.0    0.0
-   monteCarloSimulation                                                     Main                        app/Main.hs:(32,1)-(35,111)                       1305           0    0.0    0.0     0.0    0.0
-    monteCarloSimulation.\                                                  Main                        app/Main.hs:(32,144)-(35,111)                     1306           0    0.0    0.0     0.0    0.0
-     choose                                                                 Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:1-59               1307           0    0.0    0.0     0.0    0.0
-      choose.\                                                              Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:29-58              1308           0    0.0    0.0     0.0    0.0
-       choose.\.(...)                                                       Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:33-53              1309           0    0.0    0.0     0.0    0.0
-        randomR                                                             System.Random               src/System/Random.hs:235:3-43                     1310           0    0.0    0.0     0.0    0.0
-         uniformRM                                                          System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1311           0    0.0    0.0     0.0    0.0
-          uniformM                                                          System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1312           1    0.0    0.0     0.0    0.0
- CAF:main1                                                                  Main                        <no location info>                                1148           0    0.0    0.0     0.0    0.0
-  main                                                                      Main                        app/Main.hs:(47,1)-(114,141)                      1150           1    0.0    0.0     0.0    0.0
- CAF:makeDec                                                                DealCards                   src/DealCards.hs:21:1-7                           1061           0    0.0    0.0     0.0    0.0
-  makeDec                                                                   DealCards                   src/DealCards.hs:21:1-67                          1162           1    0.0    0.0     0.0    0.0
- CAF:makeDec5                                                               DealCards                   <no location info>                                1060           0    0.0    0.0     0.0    0.0
-  makeDec                                                                   DealCards                   src/DealCards.hs:21:1-67                          1164           0    0.0    0.0     0.0    0.0
- CAF:mult                                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-4              791           0    0.0    0.0     0.0    0.0
-  mult                                                                      System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1204           1    0.0    0.0     0.0    0.0
- CAF:newQCGen1                                                              Test.QuickCheck.Random      <no location info>                                 980           0    0.0    0.0     0.0    0.0
-  newQCGen                                                                  Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:68:1-30             1249           1    0.0    0.0     0.0    0.0
- CAF:newSMGen1                                                              System.Random.SplitMix      <no location info>                                 799           0    0.0    0.0     0.0    0.0
-  newSMGen                                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:385:1-48            1251           1    0.0    0.0     0.0    0.0
- CAF:plus                                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-4              790           0    0.0    0.0     0.0    0.0
-  plus                                                                      System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1225           1    0.0    0.0     0.0    0.0
- CAF:tform_r3Gc                                                             CalculateWinner             src/CalculateWinner.hs:206:9-13                   1099           0    0.0    0.0     0.0    0.0
-  findWinnerByBestHand                                                      CalculateWinner             src/CalculateWinner.hs:(192,1)-(238,81)           1387           0    0.0    0.0     0.0    0.0
-   findWinnerByBestHand.tform                                               CalculateWinner             src/CalculateWinner.hs:206:9-34                   1388           1    0.0    0.0     0.0    0.0
- CAF:theSMGen                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:388:1-8              798           0    0.0    0.0     0.0    0.0
-  theSMGen                                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:388:1-51            1253           1    0.0    0.0     0.0    0.0
-   initSMGen                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:381:1-36            1254           0    0.0    0.0     0.0    0.0
-    mkSMGen                                                                 System.Random.SplitMix      src/System/Random/SplitMix.hs:377:1-61            1255           1    0.0    0.0     0.0    0.0
-     mix64                                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1256           1    0.0    0.0     0.0    0.0
-      mix64.z1                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1261           1    0.0    0.0     0.0    0.0
-       shiftXorMultiply                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1262           1    0.0    0.0     0.0    0.0
-        shiftXor                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1264           1    0.0    0.0     0.0    0.0
-        mult                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1263           0    0.0    0.0     0.0    0.0
-      mix64.z2                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1257           1    0.0    0.0     0.0    0.0
-       shiftXorMultiply                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1258           1    0.0    0.0     0.0    0.0
-        shiftXor                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1260           1    0.0    0.0     0.0    0.0
-        mult                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1259           0    0.0    0.0     0.0    0.0
-      mix64.z3                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1265           1    0.0    0.0     0.0    0.0
-       shiftXor                                                             System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1266           1    0.0    0.0     0.0    0.0
-     mixGamma                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:(267,1)-(274,40)    1267           1    0.0    0.0     0.0    0.0
-      mixGamma.n                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:269:9-48            1268           1    0.0    0.0     0.0    0.0
-      mixGamma.z1                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:268:9-36            1269           1    0.0    0.0     0.0    0.0
-       mix64variant13                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:(256,1)-(264,9)     1270           1    0.0    0.0     0.0    0.0
-        mix64variant13.z1                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:261:9-54            1275           1    0.0    0.0     0.0    0.0
-         shiftXorMultiply                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1276           1    0.0    0.0     0.0    0.0
-          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1278           1    0.0    0.0     0.0    0.0
-          mult                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1277           0    0.0    0.0     0.0    0.0
-        mix64variant13.z2                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:262:9-54            1271           1    0.0    0.0     0.0    0.0
-         shiftXorMultiply                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1272           1    0.0    0.0     0.0    0.0
-          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1274           1    0.0    0.0     0.0    0.0
-          mult                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1273           0    0.0    0.0     0.0    0.0
-        mix64variant13.z3                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:263:9-27            1280           1    0.0    0.0     0.0    0.0
-         shiftXor                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1281           1    0.0    0.0     0.0    0.0
-     plus                                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1279           0    0.0    0.0     0.0    0.0
- CAF:theStdGen                                                              System.Random.Internal      src/System/Random/Internal.hs:587:1-9              950           0    0.0    0.0     0.0    0.0
-  theStdGen                                                                 System.Random.Internal      src/System/Random/Internal.hs:587:1-64            1173           1    0.0    0.0     0.0    0.0
-   initSMGen                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:381:1-36            1175           0    0.0    0.0     0.0    0.0
-    mkSMGen                                                                 System.Random.SplitMix      src/System/Random/SplitMix.hs:377:1-61            1200           1    0.0    0.0     0.0    0.0
-     mix64                                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1201           1    0.0    0.0     0.0    0.0
-      mix64.z1                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1207           1    0.0    0.0     0.0    0.0
-       shiftXorMultiply                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1208           1    0.0    0.0     0.0    0.0
-        shiftXor                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1210           1    0.0    0.0     0.0    0.0
-        mult                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1209           0    0.0    0.0     0.0    0.0
-      mix64.z2                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1202           1    0.0    0.0     0.0    0.0
-       shiftXorMultiply                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1203           1    0.0    0.0     0.0    0.0
-        shiftXor                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1206           1    0.0    0.0     0.0    0.0
-        mult                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1205           0    0.0    0.0     0.0    0.0
-      mix64.z3                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1211           1    0.0    0.0     0.0    0.0
-       shiftXor                                                             System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1212           1    0.0    0.0     0.0    0.0
-     mixGamma                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:(267,1)-(274,40)    1213           1    0.0    0.0     0.0    0.0
-      mixGamma.n                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:269:9-48            1214           1    0.0    0.0     0.0    0.0
-      mixGamma.z1                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:268:9-36            1215           1    0.0    0.0     0.0    0.0
-       mix64variant13                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:(256,1)-(264,9)     1216           1    0.0    0.0     0.0    0.0
-        mix64variant13.z1                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:261:9-54            1221           1    0.0    0.0     0.0    0.0
-         shiftXorMultiply                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1222           1    0.0    0.0     0.0    0.0
-          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1224           1    0.0    0.0     0.0    0.0
-          mult                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1223           0    0.0    0.0     0.0    0.0
-        mix64variant13.z2                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:262:9-54            1217           1    0.0    0.0     0.0    0.0
-         shiftXorMultiply                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1218           1    0.0    0.0     0.0    0.0
-          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1220           1    0.0    0.0     0.0    0.0
-          mult                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1219           0    0.0    0.0     0.0    0.0
-        mix64variant13.z3                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:263:9-27            1228           1    0.0    0.0     0.0    0.0
-         shiftXor                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1229           1    0.0    0.0     0.0    0.0
-     plus                                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1226           0    0.0    0.0     0.0    0.0
- CAF:wordSizeInBits                                                         System.Random.Internal      src/System/Random/Internal.hs:731:1-14             915           0    0.0    0.0     0.0    0.0
-  wordSizeInBits                                                            System.Random.Internal      src/System/Random/Internal.hs:731:1-42            1186           1    0.0    0.0     0.0    0.0
- CAF:worthyEnenmyStartingHands                                              DealCards                   src/DealCards.hs:28:1-25                          1070           0    0.0    0.0     0.0    0.0
-  worthyEnenmyStartingHands                                                 DealCards                   src/DealCards.hs:28:1-130                         1158           1    0.0    0.0     0.0    0.0
-   filterForOnlyStrongEnemyHand                                             DealCards                   src/DealCards.hs:(35,1)-(39,25)                   1165        1456    0.0    0.0     0.0    0.0
-   getAllCombinationsWithTwoPair                                            DealCards                   src/DealCards.hs:93:1-117                         1159           1    0.0    0.0     0.0    0.0
- CAF:worthyEnenmyStartingHands1                                             DealCards                   <no location info>                                1069           0    0.0    0.0     0.0    0.0
-  worthyEnenmyStartingHands                                                 DealCards                   src/DealCards.hs:28:1-130                         1160           0    0.0    0.0     0.0    0.0
-   makeDec'                                                                 DealCards                   src/DealCards.hs:24:1-59                          1161           1    0.0    0.0     0.0    0.0
-    makeDec'.\                                                              DealCards                   src/DealCards.hs:24:43-53                         1163           4    0.0    0.0     0.0    0.0
- main                                                                       Main                        app/Main.hs:(47,1)-(114,141)                      1151           0    0.0    0.0   100.0  100.0
-  main.\                                                                    Main                        app/Main.hs:96:74-163                             1166         520    0.0    0.0     0.0    0.0
-  expectedValueIsh                                                          HelperFuncs                 src/HelperFuncs.hs:42:1-59                        1452           2    0.0    0.0     0.0    0.0
-  main.batchSize                                                            Main                        app/Main.hs:104:8-116                             1245           1    0.0    0.0     0.0    0.0
-  main.clearnedUpWorthyEnenmyStartingHands                                  Main                        app/Main.hs:99:8-106                              1294           1    0.0    0.0     0.0    0.0
-   chunksOf                                                                 Data.List.Split.Internals   src/Data/List/Split/Internals.hs:(514,1)-(517,49) 1295           1    0.0    0.0     0.0    0.0
-    build                                                                   Data.List.Split.Internals   src/Data/List/Split/Internals.hs:499:1-18         1296           1    0.0    0.0     0.0    0.0
-     chunksOf.splitter                                                      Data.List.Split.Internals   src/Data/List/Split/Internals.hs:(516,3)-(517,49) 1297         162    0.0    0.0     0.0    0.0
-  main.communityCardsFlop                                                   Main                        app/Main.hs:87:8-71                               1153           1    0.0    0.0     0.0    0.0
-   makeDeckFromCommmunity                                                   HelperFuncs                 src/HelperFuncs.hs:(50,1)-(51,40)                 1154           1    0.0    0.0     0.0    0.0
-  main.d                                                                    Main                        app/Main.hs:59:8-89                               1374           1    0.0    0.0     0.0    0.0
-   removeCard'                                                              DealCards                   src/DealCards.hs:85:1-67                          1375           1    0.0    0.0     0.0    0.0
-  main.deckAfterMyCardsTakenOut                                             Main                        app/Main.hs:60:8-94                               1380           1    0.0    0.0     0.0    0.0
-   removeCard'                                                              DealCards                   src/DealCards.hs:85:1-67                          1381           1    0.0    0.0     0.0    0.0
-  main.enemyDeckLength                                                      Main                        app/Main.hs:102:8-73                              1293           1    0.0    0.0     0.0    0.0
-  main.flop                                                                 Main                        app/Main.hs:107:8-40                              1444           1    0.0    0.0     0.0    0.0
-  main.myCards                                                              Main                        app/Main.hs:54:8-113                              1152           1    0.0    0.0     0.0    0.0
-  main.myCardsPluscommunityCardsFlop                                        Main                        app/Main.hs:93:8-68                               1167           1    0.0    0.0     0.0    0.0
-  main.newDeck                                                              Main                        app/Main.hs:90:8-100                              1382           1    0.0    0.0     0.0    0.0
-   main.newDeck.\                                                           Main                        app/Main.hs:90:36-74                              1383          50    0.0    0.0     0.0    0.0
-  main.numberOfPlayers                                                      Main                        app/Main.hs:66:8-51                               1299           1    0.0    0.0     0.0    0.0
-  main.river                                                                Main                        app/Main.hs:108:8-42                              1455           1    0.0    0.0     0.0    0.0
-  main.winRatesCalculatedFlop                                               Main                        app/Main.hs:109:8-79                              1445           1    0.0    0.0     0.0    0.0
-   showWinRates                                                             HelperFuncs                 src/HelperFuncs.hs:86:1-186                       1451           1    0.0    0.0     0.0    0.0
-   main.xxxxxx                                                              Main                        app/Main.hs:74:8-75                               1449           0    0.0    0.0     0.0    0.0
-    main.xxxxxx.\                                                           Main                        app/Main.hs:74:49-74                              1450           8    0.0    0.0     0.0    0.0
-  main.winRatesCalculatedRiver                                              Main                        app/Main.hs:110:8-80                              1456           1    0.0    0.0     0.0    0.0
-   showWinRates                                                             HelperFuncs                 src/HelperFuncs.hs:86:1-186                       1462           1    0.0    0.0     0.0    0.0
-   main.xxxxxx                                                              Main                        app/Main.hs:74:8-75                               1460           0    0.0    0.0     0.0    0.0
-    main.xxxxxx.\                                                           Main                        app/Main.hs:74:49-74                              1461           8    0.0    0.0     0.0    0.0
-  main.wouldLose                                                            Main                        app/Main.hs:64:8-47                               1454           1    0.0    0.0     0.0    0.0
-  main.wouldWin                                                             Main                        app/Main.hs:63:9-47                               1453           1    0.0    0.0     0.0    0.0
-  monteCarloSimulation                                                      Main                        app/Main.hs:(32,1)-(35,111)                       1246           1    0.0    0.0   100.0  100.0
-   monteCarloSimulation.\                                                   Main                        app/Main.hs:(32,144)-(35,111)                     1247           8    0.0    0.0   100.0  100.0
-    generate                                                                Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:(227,1)-(229,20)       1248           8    0.0    0.0     0.0    0.0
-     choose                                                                 Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:1-59               1288           0    0.0    0.0     0.0    0.0
-      choose.\                                                              Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:29-58              1289           8    0.0    0.0     0.0    0.0
-       choose.\.(...)                                                       Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:33-53              1290           8    0.0    0.0     0.0    0.0
-        randomR                                                             System.Random               src/System/Random.hs:235:3-43                     1291           8    0.0    0.0     0.0    0.0
-         uniformRM                                                          System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1292           8    0.0    0.0     0.0    0.0
-       choose.\.x                                                           Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:33-53              1369           8    0.0    0.0     0.0    0.0
-     newQCGen                                                               Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:68:1-30             1250           0    0.0    0.0     0.0    0.0
-      newSMGen                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:385:1-48            1252           0    0.0    0.0     0.0    0.0
-       splitSMGen                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:(225,1)-(229,31)    1282           8    0.0    0.0     0.0    0.0
-        mix64                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1330           8    0.0    0.0     0.0    0.0
-         mix64.z1                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1335           8    0.0    0.0     0.0    0.0
-          shiftXorMultiply                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1336           8    0.0    0.0     0.0    0.0
-           shiftXor                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1338           8    0.0    0.0     0.0    0.0
-           mult                                                             System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1337           0    0.0    0.0     0.0    0.0
-         mix64.z2                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1331           8    0.0    0.0     0.0    0.0
-          shiftXorMultiply                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1332           8    0.0    0.0     0.0    0.0
-           shiftXor                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1334           8    0.0    0.0     0.0    0.0
-           mult                                                             System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1333           0    0.0    0.0     0.0    0.0
-         mix64.z3                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1339           8    0.0    0.0     0.0    0.0
-          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1340           8    0.0    0.0     0.0    0.0
-        mixGamma                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:(267,1)-(274,40)    1341           8    0.0    0.0     0.0    0.0
-         mixGamma.n                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:269:9-48            1342           8    0.0    0.0     0.0    0.0
-         mixGamma.z1                                                        System.Random.SplitMix      src/System/Random/SplitMix.hs:268:9-36            1343           8    0.0    0.0     0.0    0.0
-          mix64variant13                                                    System.Random.SplitMix      src/System/Random/SplitMix.hs:(256,1)-(264,9)     1344           8    0.0    0.0     0.0    0.0
-           mix64variant13.z1                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:261:9-54            1349           8    0.0    0.0     0.0    0.0
-            shiftXorMultiply                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1350           8    0.0    0.0     0.0    0.0
-             shiftXor                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1352           8    0.0    0.0     0.0    0.0
-             mult                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1351           0    0.0    0.0     0.0    0.0
-           mix64variant13.z2                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:262:9-54            1345           8    0.0    0.0     0.0    0.0
-            shiftXorMultiply                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1346           8    0.0    0.0     0.0    0.0
-             shiftXor                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1348           8    0.0    0.0     0.0    0.0
-             mult                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1347           0    0.0    0.0     0.0    0.0
-           mix64variant13.z3                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:263:9-27            1353           8    0.0    0.0     0.0    0.0
-            shiftXor                                                        System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1354           8    0.0    0.0     0.0    0.0
-        splitSMGen.seed'                                                    System.Random.SplitMix      src/System/Random/SplitMix.hs:228:5-30            1285           8    0.0    0.0     0.0    0.0
-         plus                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1286           0    0.0    0.0     0.0    0.0
-        splitSMGen.seed''                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:229:5-31            1283           8    0.0    0.0     0.0    0.0
-         plus                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1284           0    0.0    0.0     0.0    0.0
-    solveLazilyish                                                          Main                        app/Main.hs:40:1-228                              1370           8    0.0    0.0   100.0  100.0
-     addTriplesMultiPair                                                    HelperFuncs                 src/HelperFuncs.hs:61:1-76                        1372         240    0.0    0.0     0.0    0.0
-      addTriples                                                            HelperFuncs                 src/HelperFuncs.hs:64:1-83                        1443         480    0.0    0.0     0.0    0.0
-     gettOddsByTestingAgainstPossibleEnemyHands                             CalculateWinner             src/CalculateWinner.hs:(28,1)-(44,191)            1371         240    0.7    0.3   100.0  100.0
-      addTriples                                                            HelperFuncs                 src/HelperFuncs.hs:64:1-83                        1425    13836000    0.0    0.0     0.0    0.0
-      gettOddsByTestingAgainstPossibleEnemyHands.noCardsProvidedRandomFlops CalculateWinner             src/CalculateWinner.hs:43:9-190                   1373         240    2.4    3.1    99.3   99.7
-       findWinnerByBestHand                                                 CalculateWinner             src/CalculateWinner.hs:(192,1)-(238,81)           1385    24797242    7.7    0.5    94.9   96.6
-        ==                                                                  CardTypes                   src/CardTypes.hs:84:26-27                         1423    24797242    0.2    0.0     0.2    0.0
-        findWinnerByBestHand.enemyCards'                                    CalculateWinner             src/CalculateWinner.hs:210:9-42                   1408    24797242    0.1    0.0     0.1    0.0
-         findWinnerByBestHand.tform                                         CalculateWinner             src/CalculateWinner.hs:206:9-34                   1409           0    0.0    0.0     0.0    0.0
-          findWinnerByBestHand.tform.\                                      CalculateWinner             src/CalculateWinner.hs:206:32                     1410         318    0.0    0.0     0.0    0.0
-        findWinnerByBestHand.enemyCards''                                   CalculateWinner             src/CalculateWinner.hs:213:9-58                   1407    24797242    8.0    9.4     8.0    9.4
-        findWinnerByBestHand.houseCards'                                    CalculateWinner             src/CalculateWinner.hs:207:9-41                   1386    24797242    0.2    0.0     0.2    0.0
-         findWinnerByBestHand.tform                                         CalculateWinner             src/CalculateWinner.hs:206:9-34                   1426           0    0.0    0.0     0.0    0.0
-          findWinnerByBestHand.tform.\                                      CalculateWinner             src/CalculateWinner.hs:206:32                     1427         474    0.0    0.0     0.0    0.0
-        findWinnerByBestHand.myCards'                                       CalculateWinner             src/CalculateWinner.hs:209:9-39                   1392    24797242    0.1    0.0     0.1    0.0
-         findWinnerByBestHand.tform                                         CalculateWinner             src/CalculateWinner.hs:206:9-34                   1393           0    0.0    0.0     0.0    0.0
-          findWinnerByBestHand.tform.\                                      CalculateWinner             src/CalculateWinner.hs:206:32                     1394         318    0.0    0.0     0.0    0.0
-        findWinnerByBestHand.myCards''                                      CalculateWinner             src/CalculateWinner.hs:212:9-55                   1390    24797242    7.0    8.2     7.0    8.2
-        findWinnerByBestHand.myHandByPairs                                  CalculateWinner             src/CalculateWinner.hs:214:9-128                  1395    24797242    3.0    4.1    15.2   19.7
-         matchingCards                                                      CalculateWinner             src/CalculateWinner.hs:(167,1)-(168,34)           1397   148783452    6.4   10.1     6.4   10.1
-         matchingCardsToHand''                                              CalculateWinner             src/CalculateWinner.hs:(155,1)-(159,86)           1398    24797242    0.8    0.3     1.9    1.3
-          mySortTuplesByFstWithGreatestAsHead                               CalculateWinner             src/CalculateWinner.hs:148:1-68                   1428    10186656    1.1    1.0     1.1    1.0
-         mySortTuplesByLastWithGreatestAsHead                               CalculateWinner             src/CalculateWinner.hs:145:1-69                   1396    24797242    3.9    4.2     3.9    4.2
-        findWinnerByBestHand.myStrongHands                                  CalculateWinner             src/CalculateWinner.hs:(217,9)-(219,41)           1399    24797242    1.6    2.5    16.2   16.7
-         matchingFlushes                                                    CalculateWinner             src/CalculateWinner.hs:(171,1)-(172,40)           1400   148783452    6.8   11.3     7.5   11.6
-          matchingFlushes.\                                                 CalculateWinner             src/CalculateWinner.hs:171:66-81                  1402    54619713    0.7    0.4     0.7    0.4
-         countFiveInRow                                                     CalculateWinner             src/CalculateWinner.hs:(89,1)-(97,42)             1404   146256702    5.0    2.3     5.0    2.3
-         isHandValueFromFlush                                               CalculateWinner             src/CalculateWinner.hs:(177,1)-(183,21)           1401    24797242    1.6    0.0     2.1    0.2
-          isHandValueFromFlush.\                                            CalculateWinner             src/CalculateWinner.hs:177:74-79                  1403    69366497    0.2    0.0     0.2    0.0
-          countFiveInRow                                                    CalculateWinner             src/CalculateWinner.hs:(89,1)-(97,42)             1440     2526750    0.1    0.0     0.1    0.0
-          isHandValueFromFlush.justListInts                                 CalculateWinner             src/CalculateWinner.hs:179:17-92                  1437      421125    0.2    0.2     0.2    0.2
-           isHandValueFromFlush.justListInts.\                              CalculateWinner             src/CalculateWinner.hs:179:54                     1439     2105625    0.0    0.0     0.0    0.0
-           isHandValueFromFlush.justListInts.\                              CalculateWinner             src/CalculateWinner.hs:179:79-84                  1438     2105625    0.0    0.0     0.0    0.0
-        findWinnerByBestHand.myStrongestHand                                CalculateWinner             src/CalculateWinner.hs:220:9-83                   1405    24797242    0.2    0.0     0.5    0.0
-         compare                                                            CardTypes                   src/CardTypes.hs:84:21-23                         1406    24797242    0.3    0.0     0.3    0.0
-        findWinnerByBestHand.theirHandPairs                                 CalculateWinner             src/CalculateWinner.hs:215:9-135                  1411    24797242    3.0    3.9    15.5   18.8
-         matchingCards                                                      CalculateWinner             src/CalculateWinner.hs:(167,1)-(168,34)           1413   148783452    6.7    9.9     6.7    9.9
-         matchingCardsToHand''                                              CalculateWinner             src/CalculateWinner.hs:(155,1)-(159,86)           1414    24797242    0.9    0.3     1.7    1.0
-          mySortTuplesByFstWithGreatestAsHead                               CalculateWinner             src/CalculateWinner.hs:148:1-68                   1429     7077147    0.8    0.7     0.8    0.7
-         mySortTuplesByLastWithGreatestAsHead                               CalculateWinner             src/CalculateWinner.hs:145:1-69                   1412    24797242    4.1    4.1     4.1    4.1
-        findWinnerByBestHand.theirStrongHands                               CalculateWinner             src/CalculateWinner.hs:(222,9)-(224,41)           1415    24797242    1.7    2.5    16.3   15.3
-         matchingFlushes                                                    CalculateWinner             src/CalculateWinner.hs:(171,1)-(172,40)           1416   148783452    6.9   10.9     7.5   11.3
-          matchingFlushes.\                                                 CalculateWinner             src/CalculateWinner.hs:171:66-81                  1418    53136794    0.7    0.4     0.7    0.4
-         countFiveInRow                                                     CalculateWinner             src/CalculateWinner.hs:(89,1)-(97,42)             1420   147104658    4.9    1.3     4.9    1.3
-         isHandValueFromFlush                                               CalculateWinner             src/CalculateWinner.hs:(177,1)-(183,21)           1417    24797242    1.8    0.0     2.2    0.2
-          isHandValueFromFlush.\                                            CalculateWinner             src/CalculateWinner.hs:177:74-79                  1419    70849416    0.2    0.0     0.2    0.0
-          countFiveInRow                                                    CalculateWinner             src/CalculateWinner.hs:(89,1)-(97,42)             1433     1678794    0.0    0.0     0.0    0.0
-          isHandValueFromFlush.justListInts                                 CalculateWinner             src/CalculateWinner.hs:179:17-92                  1430      279799    0.1    0.1     0.1    0.1
-           isHandValueFromFlush.justListInts.\                              CalculateWinner             src/CalculateWinner.hs:179:54                     1432     1398995    0.0    0.0     0.0    0.0
-           isHandValueFromFlush.justListInts.\                              CalculateWinner             src/CalculateWinner.hs:179:79-84                  1431     1398995    0.0    0.0     0.0    0.0
-        findWinnerByBestHand.theirStrongestHand                             CalculateWinner             src/CalculateWinner.hs:225:9-91                   1421    24797242    0.2    0.0     0.6    0.0
-         compare                                                            CardTypes                   src/CardTypes.hs:84:21-23                         1422    24797242    0.4    0.0     0.4    0.0
-        compare                                                             CardTypes                   src/CardTypes.hs:84:21-23                         1424    21666849    0.1    0.0     0.1    0.0
-        findWinnerByBestHand.removePairFromHand                             CalculateWinner             src/CalculateWinner.hs:234:9-83                   1434     3185304    0.6    0.6     0.6    0.6
-        findWinnerByBestHand.resFromHighestCard                             CalculateWinner             src/CalculateWinner.hs:236:9-155                  1435     3112985    0.1    0.0     0.1    0.0
-        findWinnerByBestHand.removeHighCard                                 CalculateWinner             src/CalculateWinner.hs:232:9-81                   1436     2829450    0.5    0.6     0.5    0.6
-        findWinnerByBestHand.removeTwoPairFromHand                          CalculateWinner             src/CalculateWinner.hs:235:9-86                   1441      142760    0.1    0.1     0.1    0.1
-        findWinnerByBestHand.removeTripleFromHand                           CalculateWinner             src/CalculateWinner.hs:238:9-81                   1442       68456    0.0    0.0     0.0    0.0
-        findWinnerByBestHand.tform                                          CalculateWinner             src/CalculateWinner.hs:206:9-34                   1389           0    5.8    6.8     5.8    6.8
-         findWinnerByBestHand.tform.\                                       CalculateWinner             src/CalculateWinner.hs:206:32                     1391   173579584    0.0    0.0     0.0    0.0
-       gettOddsByTestingAgainstPossibleEnemyHands.checkForWinnersOrLoser    CalculateWinner             src/CalculateWinner.hs:41:9-123                   1384    13836000    2.0    0.0     2.0    0.0
-    choose                                                                  Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:1-59               1287           1    0.0    0.0     0.0    0.0
-     choose.\                                                               Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:29-58              1300           0    0.0    0.0     0.0    0.0
-      choose.\.(...)                                                        Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:33-53              1301           0    0.0    0.0     0.0    0.0
-       randomR                                                              System.Random               src/System/Random.hs:235:3-43                     1302           0    0.0    0.0     0.0    0.0
-        uniformRM                                                           System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1303           0    0.0    0.0     0.0    0.0
-         uniformM                                                           System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1313           0    0.0    0.0     0.0    0.0
-          uniformWord64                                                     System.Random.Internal      src/System/Random/Internal.hs:456:3-35            1324           0    0.0    0.0     0.0    0.0
-           genWord64                                                        Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:47:3-33             1326           0    0.0    0.0     0.0    0.0
-            genWord64                                                       System.Random.Internal      src/System/Random/Internal.hs:566:3-27            1329           0    0.0    0.0     0.0    0.0
-             nextWord64                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:(121,1)-(123,29)    1355           8    0.0    0.0     0.0    0.0
-              mix64                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1356           8    0.0    0.0     0.0    0.0
-               mix64.z1                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1361           8    0.0    0.0     0.0    0.0
-                shiftXorMultiply                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1362           8    0.0    0.0     0.0    0.0
-                 shiftXor                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1364           8    0.0    0.0     0.0    0.0
-                 mult                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1363           0    0.0    0.0     0.0    0.0
-               mix64.z2                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1357           8    0.0    0.0     0.0    0.0
-                shiftXorMultiply                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1358           8    0.0    0.0     0.0    0.0
-                 shiftXor                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1360           8    0.0    0.0     0.0    0.0
-                 mult                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1359           0    0.0    0.0     0.0    0.0
-               mix64.z3                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1367           8    0.0    0.0     0.0    0.0
-                shiftXor                                                    System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1368           8    0.0    0.0     0.0    0.0
-              nextWord64.seed'                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:123:5-29            1365           8    0.0    0.0     0.0    0.0
-               plus                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1366           0    0.0    0.0     0.0    0.0
-  shuffle''                                                                 HelperFuncs                 src/HelperFuncs.hs:(67,1)-(78,42)                 1155           1    0.0    0.0     0.0    0.0
-   shuffle''.\                                                              HelperFuncs                 src/HelperFuncs.hs:(69,29)-(74,21)                1168         483    0.0    0.0     0.0    0.0
-    randomRIO                                                               System.Random               src/System/Random.hs:550:1-46                     1169         483    0.0    0.0     0.0    0.0
-     getStdRandom                                                           System.Random               src/System/Random.hs:(527,1)-(528,28)             1172         483    0.0    0.0     0.0    0.0
-      getStdRandom.swap                                                     System.Random               src/System/Random.hs:528:9-28                     1177         483    0.0    0.0     0.0    0.0
-      randomR                                                               System.Random               src/System/Random.hs:235:3-43                     1178         483    0.0    0.0     0.0    0.0
-       uniformRM                                                            System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1179         483    0.0    0.0     0.0    0.0
-        uniformM                                                            System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1244           0    0.0    0.0     0.0    0.0
-     randomR                                                                System.Random               src/System/Random.hs:235:3-43                     1170           0    0.0    0.0     0.0    0.0
-      uniformRM                                                             System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1171           0    0.0    0.0     0.0    0.0
-       uniformM                                                             System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1187           0    0.0    0.0     0.0    0.0
-        uniformWord64                                                       System.Random.Internal      src/System/Random/Internal.hs:456:3-35            1195           0    0.0    0.0     0.0    0.0
-         genWord64                                                          System.Random.Internal      src/System/Random/Internal.hs:556:19-27           1198           0    0.0    0.0     0.0    0.0
-          genWord64                                                         System.Random.Internal      src/System/Random/Internal.hs:566:3-27            1199           0    0.0    0.0     0.0    0.0
-           nextWord64                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:(121,1)-(123,29)    1230         660    0.0    0.0     0.0    0.0
-            mix64                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1231         660    0.0    0.0     0.0    0.0
-             mix64.z1                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1236         660    0.0    0.0     0.0    0.0
-              shiftXorMultiply                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1237         660    0.0    0.0     0.0    0.0
-               shiftXor                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1239         660    0.0    0.0     0.0    0.0
-               mult                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1238           0    0.0    0.0     0.0    0.0
-             mix64.z2                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1232         660    0.0    0.0     0.0    0.0
-              shiftXorMultiply                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1233         660    0.0    0.0     0.0    0.0
-               shiftXor                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1235         660    0.0    0.0     0.0    0.0
-               mult                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1234           0    0.0    0.0     0.0    0.0
-             mix64.z3                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1242         660    0.0    0.0     0.0    0.0
-              shiftXor                                                      System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1243         660    0.0    0.0     0.0    0.0
-            nextWord64.seed'                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:123:5-29            1240         660    0.0    0.0     0.0    0.0
-             plus                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1241           0    0.0    0.0     0.0    0.0
-   shuffle''.n                                                              HelperFuncs                 src/HelperFuncs.hs:76:5-17                        1157           1    0.0    0.0     0.0    0.0
-   shuffle''.newArray                                                       HelperFuncs                 src/HelperFuncs.hs:78:5-42                        1156           1    0.0    0.0     0.0    0.0
+          uniformM                                                          System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1322           1    0.0    0.0     0.0    0.0
+ CAF:main1                                                                  Main                        <no location info>                                1158           0    0.0    0.0     0.0    0.0
+  main                                                                      Main                        app/Main.hs:(54,1)-(123,186)                      1160           1    0.0    0.0     0.0    0.0
+ CAF:makeDec                                                                DealCards                   src/DealCards.hs:21:1-7                           1071           0    0.0    0.0     0.0    0.0
+  makeDec                                                                   DealCards                   src/DealCards.hs:21:1-67                          1172           1    0.0    0.0     0.0    0.0
+ CAF:makeDec5                                                               DealCards                   <no location info>                                1070           0    0.0    0.0     0.0    0.0
+  makeDec                                                                   DealCards                   src/DealCards.hs:21:1-67                          1174           0    0.0    0.0     0.0    0.0
+ CAF:mult                                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-4              796           0    0.0    0.0     0.0    0.0
+  mult                                                                      System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1214           1    0.0    0.0     0.0    0.0
+ CAF:newQCGen1                                                              Test.QuickCheck.Random      <no location info>                                 985           0    0.0    0.0     0.0    0.0
+  newQCGen                                                                  Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:68:1-30             1259           1    0.0    0.0     0.0    0.0
+ CAF:newSMGen1                                                              System.Random.SplitMix      <no location info>                                 804           0    0.0    0.0     0.0    0.0
+  newSMGen                                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:385:1-48            1261           1    0.0    0.0     0.0    0.0
+ CAF:plus                                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-4              795           0    0.0    0.0     0.0    0.0
+  plus                                                                      System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1235           1    0.0    0.0     0.0    0.0
+ CAF:tform_r6i9                                                             CalculateWinner             src/CalculateWinner.hs:206:9-13                   1109           0    0.0    0.0     0.0    0.0
+  findWinnerByBestHand                                                      CalculateWinner             src/CalculateWinner.hs:(192,1)-(238,81)           1397           0    0.0    0.0     0.0    0.0
+   findWinnerByBestHand.tform                                               CalculateWinner             src/CalculateWinner.hs:206:9-34                   1398           1    0.0    0.0     0.0    0.0
+ CAF:theSMGen                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:388:1-8              803           0    0.0    0.0     0.0    0.0
+  theSMGen                                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:388:1-51            1263           1    0.0    0.0     0.0    0.0
+   initSMGen                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:381:1-36            1264           0    0.0    0.0     0.0    0.0
+    mkSMGen                                                                 System.Random.SplitMix      src/System/Random/SplitMix.hs:377:1-61            1265           1    0.0    0.0     0.0    0.0
+     mix64                                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1266           1    0.0    0.0     0.0    0.0
+      mix64.z1                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1271           1    0.0    0.0     0.0    0.0
+       shiftXorMultiply                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1272           1    0.0    0.0     0.0    0.0
+        shiftXor                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1274           1    0.0    0.0     0.0    0.0
+        mult                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1273           0    0.0    0.0     0.0    0.0
+      mix64.z2                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1267           1    0.0    0.0     0.0    0.0
+       shiftXorMultiply                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1268           1    0.0    0.0     0.0    0.0
+        shiftXor                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1270           1    0.0    0.0     0.0    0.0
+        mult                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1269           0    0.0    0.0     0.0    0.0
+      mix64.z3                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1275           1    0.0    0.0     0.0    0.0
+       shiftXor                                                             System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1276           1    0.0    0.0     0.0    0.0
+     mixGamma                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:(267,1)-(274,40)    1277           1    0.0    0.0     0.0    0.0
+      mixGamma.n                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:269:9-48            1278           1    0.0    0.0     0.0    0.0
+      mixGamma.z1                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:268:9-36            1279           1    0.0    0.0     0.0    0.0
+       mix64variant13                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:(256,1)-(264,9)     1280           1    0.0    0.0     0.0    0.0
+        mix64variant13.z1                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:261:9-54            1285           1    0.0    0.0     0.0    0.0
+         shiftXorMultiply                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1286           1    0.0    0.0     0.0    0.0
+          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1288           1    0.0    0.0     0.0    0.0
+          mult                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1287           0    0.0    0.0     0.0    0.0
+        mix64variant13.z2                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:262:9-54            1281           1    0.0    0.0     0.0    0.0
+         shiftXorMultiply                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1282           1    0.0    0.0     0.0    0.0
+          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1284           1    0.0    0.0     0.0    0.0
+          mult                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1283           0    0.0    0.0     0.0    0.0
+        mix64variant13.z3                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:263:9-27            1290           1    0.0    0.0     0.0    0.0
+         shiftXor                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1291           1    0.0    0.0     0.0    0.0
+     plus                                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1289           0    0.0    0.0     0.0    0.0
+ CAF:theStdGen                                                              System.Random.Internal      src/System/Random/Internal.hs:587:1-9              955           0    0.0    0.0     0.0    0.0
+  theStdGen                                                                 System.Random.Internal      src/System/Random/Internal.hs:587:1-64            1183           1    0.0    0.0     0.0    0.0
+   initSMGen                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:381:1-36            1185           0    0.0    0.0     0.0    0.0
+    mkSMGen                                                                 System.Random.SplitMix      src/System/Random/SplitMix.hs:377:1-61            1210           1    0.0    0.0     0.0    0.0
+     mix64                                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1211           1    0.0    0.0     0.0    0.0
+      mix64.z1                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1217           1    0.0    0.0     0.0    0.0
+       shiftXorMultiply                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1218           1    0.0    0.0     0.0    0.0
+        shiftXor                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1220           1    0.0    0.0     0.0    0.0
+        mult                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1219           0    0.0    0.0     0.0    0.0
+      mix64.z2                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1212           1    0.0    0.0     0.0    0.0
+       shiftXorMultiply                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1213           1    0.0    0.0     0.0    0.0
+        shiftXor                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1216           1    0.0    0.0     0.0    0.0
+        mult                                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1215           0    0.0    0.0     0.0    0.0
+      mix64.z3                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1221           1    0.0    0.0     0.0    0.0
+       shiftXor                                                             System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1222           1    0.0    0.0     0.0    0.0
+     mixGamma                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:(267,1)-(274,40)    1223           1    0.0    0.0     0.0    0.0
+      mixGamma.n                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:269:9-48            1224           1    0.0    0.0     0.0    0.0
+      mixGamma.z1                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:268:9-36            1225           1    0.0    0.0     0.0    0.0
+       mix64variant13                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:(256,1)-(264,9)     1226           1    0.0    0.0     0.0    0.0
+        mix64variant13.z1                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:261:9-54            1231           1    0.0    0.0     0.0    0.0
+         shiftXorMultiply                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1232           1    0.0    0.0     0.0    0.0
+          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1234           1    0.0    0.0     0.0    0.0
+          mult                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1233           0    0.0    0.0     0.0    0.0
+        mix64variant13.z2                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:262:9-54            1227           1    0.0    0.0     0.0    0.0
+         shiftXorMultiply                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1228           1    0.0    0.0     0.0    0.0
+          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1230           1    0.0    0.0     0.0    0.0
+          mult                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1229           0    0.0    0.0     0.0    0.0
+        mix64variant13.z3                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:263:9-27            1238           1    0.0    0.0     0.0    0.0
+         shiftXor                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1239           1    0.0    0.0     0.0    0.0
+     plus                                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1236           0    0.0    0.0     0.0    0.0
+ CAF:wordSizeInBits                                                         System.Random.Internal      src/System/Random/Internal.hs:731:1-14             920           0    0.0    0.0     0.0    0.0
+  wordSizeInBits                                                            System.Random.Internal      src/System/Random/Internal.hs:731:1-42            1196           1    0.0    0.0     0.0    0.0
+ CAF:worthyEnenmyStartingHands                                              DealCards                   src/DealCards.hs:28:1-25                          1080           0    0.0    0.0     0.1    0.0
+  worthyEnenmyStartingHands                                                 DealCards                   src/DealCards.hs:28:1-130                         1168           1    0.0    0.0     0.1    0.0
+   filterForOnlyStrongEnemyHand                                             DealCards                   src/DealCards.hs:(35,1)-(39,25)                   1175        1456    0.0    0.0     0.0    0.0
+   getAllCombinationsWithTwoPair                                            DealCards                   src/DealCards.hs:93:1-117                         1169           1    0.1    0.0     0.1    0.0
+ CAF:worthyEnenmyStartingHands1                                             DealCards                   <no location info>                                1079           0    0.0    0.0     0.0    0.0
+  worthyEnenmyStartingHands                                                 DealCards                   src/DealCards.hs:28:1-130                         1170           0    0.0    0.0     0.0    0.0
+   makeDec'                                                                 DealCards                   src/DealCards.hs:24:1-59                          1171           1    0.0    0.0     0.0    0.0
+    makeDec'.\                                                              DealCards                   src/DealCards.hs:24:43-53                         1173           4    0.0    0.0     0.0    0.0
+ main                                                                       Main                        app/Main.hs:(54,1)-(123,186)                      1161           0    0.0    0.0    99.5  100.0
+  main.\                                                                    Main                        app/Main.hs:104:74-163                            1176         520    0.0    0.0     0.0    0.0
+  main.batchSize                                                            Main                        app/Main.hs:112:8-116                             1255           1    0.0    0.0     0.0    0.0
+  main.clearnedUpWorthyEnenmyStartingHands                                  Main                        app/Main.hs:107:8-106                             1304           1    0.0    0.0     0.0    0.0
+   chunksOf                                                                 Data.List.Split.Internals   src/Data/List/Split/Internals.hs:(514,1)-(517,49) 1305           1    0.0    0.0     0.0    0.0
+    build                                                                   Data.List.Split.Internals   src/Data/List/Split/Internals.hs:499:1-18         1306           1    0.0    0.0     0.0    0.0
+     chunksOf.splitter                                                      Data.List.Split.Internals   src/Data/List/Split/Internals.hs:(516,3)-(517,49) 1307         122    0.0    0.0     0.0    0.0
+  main.communityCardsFlop                                                   Main                        app/Main.hs:94:8-71                               1163           1    0.0    0.0     0.0    0.0
+   makeDeckFromCommmunity                                                   HelperFuncs                 src/HelperFuncs.hs:(50,1)-(51,40)                 1164           1    0.0    0.0     0.0    0.0
+  main.d                                                                    Main                        app/Main.hs:66:8-89                               1384           1    0.0    0.0     0.0    0.0
+   removeCard'                                                              DealCards                   src/DealCards.hs:85:1-67                          1385           1    0.0    0.0     0.0    0.0
+  main.deckAfterMyCardsTakenOut                                             Main                        app/Main.hs:67:8-94                               1390           1    0.0    0.0     0.0    0.0
+   removeCard'                                                              DealCards                   src/DealCards.hs:85:1-67                          1391           1    0.0    0.0     0.0    0.0
+  main.enemyDeckLength                                                      Main                        app/Main.hs:110:8-73                              1303           1    0.0    0.0     0.0    0.0
+  main.myCards                                                              Main                        app/Main.hs:61:8-113                              1162           1    0.0    0.0     0.0    0.0
+  main.myCardsPluscommunityCardsFlop                                        Main                        app/Main.hs:101:8-68                              1177           1    0.0    0.0     0.0    0.0
+  main.newDeck                                                              Main                        app/Main.hs:98:8-100                              1392           1    0.0    0.0     0.0    0.0
+   main.newDeck.\                                                           Main                        app/Main.hs:98:36-74                              1393          50    0.0    0.0     0.0    0.0
+  main.numberOfPlayers                                                      Main                        app/Main.hs:73:8-51                               1309           1    0.0    0.0     0.0    0.0
+  monteCarloSimulation                                                      Main                        app/Main.hs:(37,1)-(40,111)                       1256           1    0.0    0.0    99.5  100.0
+   monteCarloSimulation.\                                                   Main                        app/Main.hs:(37,144)-(40,111)                     1257           3    0.0    0.0    99.5  100.0
+    generate                                                                Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:(227,1)-(229,20)       1258           3    0.0    0.0     0.0    0.0
+     choose                                                                 Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:1-59               1298           0    0.0    0.0     0.0    0.0
+      choose.\                                                              Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:29-58              1299           1    0.0    0.0     0.0    0.0
+       choose.\.(...)                                                       Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:33-53              1300           1    0.0    0.0     0.0    0.0
+        randomR                                                             System.Random               src/System/Random.hs:235:3-43                     1301           1    0.0    0.0     0.0    0.0
+         uniformRM                                                          System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1302           1    0.0    0.0     0.0    0.0
+       choose.\.x                                                           Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:33-53              1379           1    0.0    0.0     0.0    0.0
+     newQCGen                                                               Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:68:1-30             1260           0    0.0    0.0     0.0    0.0
+      newSMGen                                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:385:1-48            1262           0    0.0    0.0     0.0    0.0
+       splitSMGen                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:(225,1)-(229,31)    1292           3    0.0    0.0     0.0    0.0
+        splitSMGen.seed'                                                    System.Random.SplitMix      src/System/Random/SplitMix.hs:228:5-30            1295           2    0.0    0.0     0.0    0.0
+         plus                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1296           0    0.0    0.0     0.0    0.0
+        splitSMGen.seed''                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:229:5-31            1293           2    0.0    0.0     0.0    0.0
+         plus                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1294           0    0.0    0.0     0.0    0.0
+        mix64                                                               System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1340           1    0.0    0.0     0.0    0.0
+         mix64.z1                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1345           1    0.0    0.0     0.0    0.0
+          shiftXorMultiply                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1346           1    0.0    0.0     0.0    0.0
+           shiftXor                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1348           1    0.0    0.0     0.0    0.0
+           mult                                                             System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1347           0    0.0    0.0     0.0    0.0
+         mix64.z2                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1341           1    0.0    0.0     0.0    0.0
+          shiftXorMultiply                                                  System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1342           1    0.0    0.0     0.0    0.0
+           shiftXor                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1344           1    0.0    0.0     0.0    0.0
+           mult                                                             System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1343           0    0.0    0.0     0.0    0.0
+         mix64.z3                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1349           1    0.0    0.0     0.0    0.0
+          shiftXor                                                          System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1350           1    0.0    0.0     0.0    0.0
+        mixGamma                                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:(267,1)-(274,40)    1351           1    0.0    0.0     0.0    0.0
+         mixGamma.n                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:269:9-48            1352           1    0.0    0.0     0.0    0.0
+         mixGamma.z1                                                        System.Random.SplitMix      src/System/Random/SplitMix.hs:268:9-36            1353           1    0.0    0.0     0.0    0.0
+          mix64variant13                                                    System.Random.SplitMix      src/System/Random/SplitMix.hs:(256,1)-(264,9)     1354           1    0.0    0.0     0.0    0.0
+           mix64variant13.z1                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:261:9-54            1359           1    0.0    0.0     0.0    0.0
+            shiftXorMultiply                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1360           1    0.0    0.0     0.0    0.0
+             shiftXor                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1362           1    0.0    0.0     0.0    0.0
+             mult                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1361           0    0.0    0.0     0.0    0.0
+           mix64variant13.z2                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:262:9-54            1355           1    0.0    0.0     0.0    0.0
+            shiftXorMultiply                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1356           1    0.0    0.0     0.0    0.0
+             shiftXor                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1358           1    0.0    0.0     0.0    0.0
+             mult                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1357           0    0.0    0.0     0.0    0.0
+           mix64variant13.z3                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:263:9-27            1363           1    0.0    0.0     0.0    0.0
+            shiftXor                                                        System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1364           1    0.0    0.0     0.0    0.0
+    choose                                                                  Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:1-59               1297           1    0.0    0.0     0.0    0.0
+     choose.\                                                               Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:29-58              1310           0    0.0    0.0     0.0    0.0
+      choose.\.(...)                                                        Test.QuickCheck.Gen         src/Test/QuickCheck/Gen.hs:147:33-53              1311           0    0.0    0.0     0.0    0.0
+       randomR                                                              System.Random               src/System/Random.hs:235:3-43                     1312           0    0.0    0.0     0.0    0.0
+        uniformRM                                                           System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1313           0    0.0    0.0     0.0    0.0
+         uniformM                                                           System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1323           0    0.0    0.0     0.0    0.0
+          uniformWord64                                                     System.Random.Internal      src/System/Random/Internal.hs:456:3-35            1334           0    0.0    0.0     0.0    0.0
+           genWord64                                                        Test.QuickCheck.Random      src/Test/QuickCheck/Random.hs:47:3-33             1336           0    0.0    0.0     0.0    0.0
+            genWord64                                                       System.Random.Internal      src/System/Random/Internal.hs:566:3-27            1339           0    0.0    0.0     0.0    0.0
+             nextWord64                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:(121,1)-(123,29)    1365           1    0.0    0.0     0.0    0.0
+              mix64                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1366           1    0.0    0.0     0.0    0.0
+               mix64.z1                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1371           1    0.0    0.0     0.0    0.0
+                shiftXorMultiply                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1372           1    0.0    0.0     0.0    0.0
+                 shiftXor                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1374           1    0.0    0.0     0.0    0.0
+                 mult                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1373           0    0.0    0.0     0.0    0.0
+               mix64.z2                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1367           1    0.0    0.0     0.0    0.0
+                shiftXorMultiply                                            System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1368           1    0.0    0.0     0.0    0.0
+                 shiftXor                                                   System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1370           1    0.0    0.0     0.0    0.0
+                 mult                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1369           0    0.0    0.0     0.0    0.0
+               mix64.z3                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1377           1    0.0    0.0     0.0    0.0
+                shiftXor                                                    System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1378           1    0.0    0.0     0.0    0.0
+              nextWord64.seed'                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:123:5-29            1375           1    0.0    0.0     0.0    0.0
+               plus                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1376           0    0.0    0.0     0.0    0.0
+    solveLazilyish                                                          Main                        app/Main.hs:45:1-228                              1380           1    0.0    0.0    99.5  100.0
+     addTriplesMultiPair                                                    HelperFuncs                 src/HelperFuncs.hs:61:1-76                        1382          30    0.0    0.0     0.0    0.0
+     gettOddsByTestingAgainstPossibleEnemyHands                             CalculateWinner             src/CalculateWinner.hs:(28,1)-(44,191)            1381          30    0.7    0.3    99.5  100.0
+      addTriples                                                            HelperFuncs                 src/HelperFuncs.hs:64:1-83                        1436      361728    0.0    0.0     0.0    0.0
+      gettOddsByTestingAgainstPossibleEnemyHands.noCardsProvidedRandomFlops CalculateWinner             src/CalculateWinner.hs:43:9-190                   1383           7    2.2    3.2    98.8   99.7
+       findWinnerByBestHand                                                 CalculateWinner             src/CalculateWinner.hs:(192,1)-(238,81)           1395      610901    8.0    0.5    94.5   96.4
+        findWinnerByBestHand.houseCards'                                    CalculateWinner             src/CalculateWinner.hs:207:9-41                   1396      610901    0.1    0.0     0.1    0.0
+         findWinnerByBestHand.tform                                         CalculateWinner             src/CalculateWinner.hs:206:9-34                   1437           0    0.0    0.0     0.0    0.0
+          findWinnerByBestHand.tform.\                                      CalculateWinner             src/CalculateWinner.hs:206:32                     1438         456    0.0    0.0     0.0    0.0
+        findWinnerByBestHand.myCards'                                       CalculateWinner             src/CalculateWinner.hs:209:9-39                   1402      610901    0.2    0.0     0.2    0.0
+         findWinnerByBestHand.tform                                         CalculateWinner             src/CalculateWinner.hs:206:9-34                   1403           0    0.0    0.0     0.0    0.0
+          findWinnerByBestHand.tform.\                                      CalculateWinner             src/CalculateWinner.hs:206:32                     1404         306    0.0    0.0     0.0    0.0
+        findWinnerByBestHand.myCards''                                      CalculateWinner             src/CalculateWinner.hs:212:9-55                   1400      610901    7.4   10.0     7.4   10.0
+        findWinnerByBestHand.myHandByPairs                                  CalculateWinner             src/CalculateWinner.hs:214:9-128                  1405      610901    2.3    4.0    14.7   19.4
+         matchingCards                                                      CalculateWinner             src/CalculateWinner.hs:(167,1)-(168,34)           1407     3665406    6.0   10.0     6.0   10.0
+         matchingCardsToHand''                                              CalculateWinner             src/CalculateWinner.hs:(155,1)-(159,86)           1408      610901    1.1    0.3     2.2    1.2
+          mySortTuplesByFstWithGreatestAsHead                               CalculateWinner             src/CalculateWinner.hs:148:1-68                   1439      217866    1.1    0.9     1.1    0.9
+         mySortTuplesByLastWithGreatestAsHead                               CalculateWinner             src/CalculateWinner.hs:145:1-69                   1406      610901    4.3    4.2     4.3    4.2
+        findWinnerByBestHand.myStrongHands                                  CalculateWinner             src/CalculateWinner.hs:(217,9)-(219,41)           1409      610901    1.4    2.4    15.7   15.8
+         matchingFlushes                                                    CalculateWinner             src/CalculateWinner.hs:(171,1)-(172,40)           1410     3665406    7.1   11.5     7.8   11.8
+          matchingFlushes.\                                                 CalculateWinner             src/CalculateWinner.hs:171:66-81                  1413     1097352    0.7    0.3     0.7    0.3
+         countFiveInRow                                                     CalculateWinner             src/CalculateWinner.hs:(89,1)-(97,42)             1414     3665400    4.3    1.5     4.3    1.5
+         isHandValueFromFlush                                               CalculateWinner             src/CalculateWinner.hs:(177,1)-(183,21)           1411      610900    2.0    0.0     2.1    0.0
+          isHandValueFromFlush.\                                            CalculateWinner             src/CalculateWinner.hs:177:74-79                  1412     1957148    0.1    0.0     0.1    0.0
+        ==                                                                  CardTypes                   src/CardTypes.hs:84:26-27                         1433      610900    0.3    0.0     0.3    0.0
+        findWinnerByBestHand.enemyCards'                                    CalculateWinner             src/CalculateWinner.hs:210:9-42                   1418      610900    0.2    0.0     0.2    0.0
+         findWinnerByBestHand.tform                                         CalculateWinner             src/CalculateWinner.hs:206:9-34                   1419           0    0.0    0.0     0.0    0.0
+          findWinnerByBestHand.tform.\                                      CalculateWinner             src/CalculateWinner.hs:206:32                     1420         306    0.0    0.0     0.0    0.0
+        findWinnerByBestHand.enemyCards''                                   CalculateWinner             src/CalculateWinner.hs:213:9-58                   1417      610900    7.3    9.4     7.3    9.4
+        findWinnerByBestHand.myStrongestHand                                CalculateWinner             src/CalculateWinner.hs:220:9-83                   1415      610900    0.2    0.0     0.7    0.0
+         compare                                                            CardTypes                   src/CardTypes.hs:84:21-23                         1416      610900    0.5    0.0     0.5    0.0
+        findWinnerByBestHand.theirHandPairs                                 CalculateWinner             src/CalculateWinner.hs:215:9-135                  1421      610900    3.0    3.8    16.3   18.6
+         matchingCards                                                      CalculateWinner             src/CalculateWinner.hs:(167,1)-(168,34)           1423     3665400    6.7    9.9     6.7    9.9
+         matchingCardsToHand''                                              CalculateWinner             src/CalculateWinner.hs:(155,1)-(159,86)           1424      610900    1.3    0.3     2.2    1.0
+          mySortTuplesByFstWithGreatestAsHead                               CalculateWinner             src/CalculateWinner.hs:148:1-68                   1440      170864    0.9    0.7     0.9    0.7
+         mySortTuplesByLastWithGreatestAsHead                               CalculateWinner             src/CalculateWinner.hs:145:1-69                   1422      610900    4.4    3.9     4.4    3.9
+        findWinnerByBestHand.theirStrongHands                               CalculateWinner             src/CalculateWinner.hs:(222,9)-(224,41)           1425      610900    1.3    2.5    16.0   14.9
+         matchingFlushes                                                    CalculateWinner             src/CalculateWinner.hs:(171,1)-(172,40)           1426     3665400    6.6   10.6     7.5   11.0
+          matchingFlushes.\                                                 CalculateWinner             src/CalculateWinner.hs:171:66-81                  1428     1291005    0.9    0.4     0.9    0.4
+         countFiveInRow                                                     CalculateWinner             src/CalculateWinner.hs:(89,1)-(97,42)             1430     3635622    5.2    1.3     5.2    1.3
+         isHandValueFromFlush                                               CalculateWinner             src/CalculateWinner.hs:(177,1)-(183,21)           1427      610900    1.8    0.0     1.9    0.1
+          isHandValueFromFlush.\                                            CalculateWinner             src/CalculateWinner.hs:177:74-79                  1429     1763495    0.1    0.0     0.1    0.0
+          countFiveInRow                                                    CalculateWinner             src/CalculateWinner.hs:(89,1)-(97,42)             1446       29778    0.1    0.0     0.1    0.0
+          isHandValueFromFlush.justListInts                                 CalculateWinner             src/CalculateWinner.hs:179:17-92                  1443        4963    0.0    0.1     0.0    0.1
+           isHandValueFromFlush.justListInts.\                              CalculateWinner             src/CalculateWinner.hs:179:54                     1445       24815    0.0    0.0     0.0    0.0
+           isHandValueFromFlush.justListInts.\                              CalculateWinner             src/CalculateWinner.hs:179:79-84                  1444       24815    0.0    0.0     0.0    0.0
+        findWinnerByBestHand.theirStrongestHand                             CalculateWinner             src/CalculateWinner.hs:225:9-91                   1431      610900    0.1    0.0     0.5    0.0
+         compare                                                            CardTypes                   src/CardTypes.hs:84:21-23                         1432      610900    0.4    0.0     0.4    0.0
+        compare                                                             CardTypes                   src/CardTypes.hs:84:21-23                         1441      543705    0.2    0.0     0.2    0.0
+        findWinnerByBestHand.resFromHighestCard                             CalculateWinner             src/CalculateWinner.hs:236:9-155                  1435       67195    0.0    0.0     0.0    0.0
+        findWinnerByBestHand.removePairFromHand                             CalculateWinner             src/CalculateWinner.hs:234:9-83                   1434       65840    0.3    0.4     0.3    0.4
+        findWinnerByBestHand.removeHighCard                                 CalculateWinner             src/CalculateWinner.hs:232:9-81                   1442       58948    0.4    0.5     0.4    0.5
+        findWinnerByBestHand.removeTwoPairFromHand                          CalculateWinner             src/CalculateWinner.hs:235:9-86                   1447        8182    0.2    0.2     0.2    0.2
+        findWinnerByBestHand.removeTripleFromHand                           CalculateWinner             src/CalculateWinner.hs:238:9-81                   1448        1420    0.0    0.0     0.0    0.0
+        findWinnerByBestHand.tform                                          CalculateWinner             src/CalculateWinner.hs:206:9-34                   1399           0    6.1    6.7     6.1    6.7
+         findWinnerByBestHand.tform.\                                       CalculateWinner             src/CalculateWinner.hs:206:32                     1401     4275237    0.0    0.0     0.0    0.0
+       gettOddsByTestingAgainstPossibleEnemyHands.checkForWinnersOrLoser    CalculateWinner             src/CalculateWinner.hs:41:9-123                   1394      361729    2.2    0.0     2.2    0.0
+  shuffle''                                                                 HelperFuncs                 src/HelperFuncs.hs:(67,1)-(78,42)                 1165           1    0.0    0.0     0.0    0.0
+   shuffle''.\                                                              HelperFuncs                 src/HelperFuncs.hs:(69,29)-(74,21)                1178         482    0.0    0.0     0.0    0.0
+    randomRIO                                                               System.Random               src/System/Random.hs:550:1-46                     1179         482    0.0    0.0     0.0    0.0
+     getStdRandom                                                           System.Random               src/System/Random.hs:(527,1)-(528,28)             1182         482    0.0    0.0     0.0    0.0
+      getStdRandom.swap                                                     System.Random               src/System/Random.hs:528:9-28                     1187         482    0.0    0.0     0.0    0.0
+      randomR                                                               System.Random               src/System/Random.hs:235:3-43                     1188         482    0.0    0.0     0.0    0.0
+       uniformRM                                                            System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1189         482    0.0    0.0     0.0    0.0
+        uniformM                                                            System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1254           0    0.0    0.0     0.0    0.0
+     randomR                                                                System.Random               src/System/Random.hs:235:3-43                     1180           0    0.0    0.0     0.0    0.0
+      uniformRM                                                             System.Random.Internal      src/System/Random/Internal.hs:742:3-85            1181           0    0.0    0.0     0.0    0.0
+       uniformM                                                             System.Random.Internal      src/System/Random/Internal.hs:(746,3)-(750,59)    1197           0    0.0    0.0     0.0    0.0
+        uniformWord64                                                       System.Random.Internal      src/System/Random/Internal.hs:456:3-35            1205           0    0.0    0.0     0.0    0.0
+         genWord64                                                          System.Random.Internal      src/System/Random/Internal.hs:556:19-27           1208           0    0.0    0.0     0.0    0.0
+          genWord64                                                         System.Random.Internal      src/System/Random/Internal.hs:566:3-27            1209           0    0.0    0.0     0.0    0.0
+           nextWord64                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:(121,1)-(123,29)    1240         680    0.0    0.0     0.0    0.0
+            mix64                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:(247,1)-(252,9)     1241         680    0.0    0.0     0.0    0.0
+             mix64.z1                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:249:9-54            1246         680    0.0    0.0     0.0    0.0
+              shiftXorMultiply                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1247         680    0.0    0.0     0.0    0.0
+               shiftXor                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1249         680    0.0    0.0     0.0    0.0
+               mult                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1248           0    0.0    0.0     0.0    0.0
+             mix64.z2                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:250:9-54            1242         680    0.0    0.0     0.0    0.0
+              shiftXorMultiply                                              System.Random.SplitMix      src/System/Random/SplitMix.hs:280:1-46            1243         680    0.0    0.0     0.0    0.0
+               shiftXor                                                     System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1245         680    0.0    0.0     0.0    0.0
+               mult                                                         System.Random.SplitMix      src/System/Random/SplitMix.hs:397:1-10            1244           0    0.0    0.0     0.0    0.0
+             mix64.z3                                                       System.Random.SplitMix      src/System/Random/SplitMix.hs:251:9-27            1252         680    0.0    0.0     0.0    0.0
+              shiftXor                                                      System.Random.SplitMix      src/System/Random/SplitMix.hs:277:1-37            1253         680    0.0    0.0     0.0    0.0
+            nextWord64.seed'                                                System.Random.SplitMix      src/System/Random/SplitMix.hs:123:5-29            1250         680    0.0    0.0     0.0    0.0
+             plus                                                           System.Random.SplitMix      src/System/Random/SplitMix.hs:398:1-10            1251           0    0.0    0.0     0.0    0.0
+   shuffle''.n                                                              HelperFuncs                 src/HelperFuncs.hs:76:5-17                        1167           1    0.0    0.0     0.0    0.0
+   shuffle''.newArray                                                       HelperFuncs                 src/HelperFuncs.hs:78:5-42                        1166           1    0.0    0.0     0.0    0.0

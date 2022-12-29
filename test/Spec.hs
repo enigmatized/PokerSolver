@@ -44,3 +44,14 @@ spec = describe "Need to write more here" $ do
             quickCheck checkStraightCheckerTooSmall
 
 
+
+   -- let lsss = sort $ map (\(f,s) -> s ) [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )] 
+   -- putStrLn $ ("Straight check hand " ++ ) $ show lsss
+   -- putStrLn $ ("Straight check hand " ++ ) $ show $ countFiveInRow 1 (head lsss) 0 0  lsss
+   -- n44 <- getLine
+   -- putStrLn $ ("winning hand" ++ ) $ show $ findWinnerByBestHand [('H', 14 ), ('H', 13 ), ('H', 12 )] [('H', 10 ), ('H', 11 )] [('C', 10 ), ('C', 11 )]
+   -- putStrLn $ ("map  looks like " ++ ) $ show $ (matchingFlushes $ sort [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )])
+   -- putStrLn $ ("filtermap looks like " ++ ) $ show $ Map.filter (\(a, b) -> a >= 5 ) (matchingFlushes $  sort [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )])
+   -- putStrLn $ ("Matching flushes" ++ ) $ show $ isHandValueFromFlush (matchingFlushes $ sort [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )])   [('H', 14 ), ('H', 13 ), ('H', 12 ), ('H', 10 ), ('H', 11 )]
+   
+   -- n2 <- getLine
